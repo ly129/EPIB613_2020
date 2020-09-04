@@ -1,0 +1,26 @@
+---
+title: "Assignment x"
+author: "Yi Lian"
+date: "04/09/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Question 1. What is the average of 1,3254,12,34,123,4, 27
+
+```{r q1}
+numbers <- c(1, 3254, 12, 34, 123, 4, 27)
+q1_ans <- mean(numbers)
+q1_ans
+# comments
+```
+The average of these numbers is `r q1_ans`.
+
+# Question 2. Plot the distribution of 1,3254,12,34,123,4, 27
+```{r q2}
+plot(numbers)
+```
+
