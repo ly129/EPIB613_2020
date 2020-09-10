@@ -13077,17 +13077,20 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="EPIB-613-COURSE-MATERIAL">EPIB 613 COURSE MATERIAL<a class="anchor-link" href="#EPIB-613-COURSE-MATERIAL">&#182;</a></h1><ul>
-<li><p>Fall 2020</p>
-</li>
-<li><p>Yi Lian</p>
-</li>
-</ul>
-<h2 id="Table-of-Contents">Table of Contents<a id="toc" /><a class="anchor-link" href="#Table-of-Contents">&#182;</a></h2><ul>
+<h1 id="EPIB-613-INTRODUCTION-TO-STATISTICAL-SOFTWARE"><center>EPIB 613 INTRODUCTION TO STATISTICAL SOFTWARE</center><a class="anchor-link" href="#EPIB-613-INTRODUCTION-TO-STATISTICAL-SOFTWARE">&#182;</a></h1><center> McGill EBOH </center><center> Fall 2020 </center><center> Yi Lian </center><h1 id="Table-of-Contents">Table of Contents<a id="toc" /><a class="anchor-link" href="#Table-of-Contents">&#182;</a></h1><ul>
 <li><a href="#l1">Lecture 1</a><ol>
 <li>Course walkthrouth</li>
 <li>R and Rstudio</li>
 <li>R markdown</li>
+</ol>
+</li>
+<li><a href="#l2">Lecture 2</a><ol>
+<li>Basic computations in R</li>
+<li>How to create an object</li>
+<li>Data types</li>
+<li>Data strctures</li>
+<li>How to generate data</li>
+<li>Operators</li>
 </ol>
 </li>
 </ul>
@@ -13098,12 +13101,12 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="-Lecture-1"><a id="l1" /> <a href="#toc">Lecture 1</a><a class="anchor-link" href="#-Lecture-1">&#182;</a></h2><h3 id="1.-Course-walkthrough">1. Course walkthrough<a class="anchor-link" href="#1.-Course-walkthrough">&#182;</a></h3><h4 id="Logistics">Logistics<a class="anchor-link" href="#Logistics">&#182;</a></h4><ul>
+<h1 id="-Lecture-1"><a id="l1" /> <a href="#toc">Lecture 1</a><a class="anchor-link" href="#-Lecture-1">&#182;</a></h1><h2 id="1.1-Course-walkthrough">1.1 Course walkthrough<a class="anchor-link" href="#1.1-Course-walkthrough">&#182;</a></h2><h3 id="Logistics">Logistics<a class="anchor-link" href="#Logistics">&#182;</a></h3><ul>
 <li><p>Location:</p>
 <ul>
-<li><p><a href="https://mcgill.zoom.us/j/95067591586?pwd=aEc0dDg3REpucWdocGtubXh6QXU0dz09">https://mcgill.zoom.us/j/95067591586?pwd=aEc0dDg3REpucWdocGtubXh6QXU0dz09</a></p>
+<li><p><a href="https://mcgill.zoom.us/j/98942683588?pwd=WnVBS0JkVmRCT0hCQlBJUjZBeXVmUT09">https://mcgill.zoom.us/j/98942683588?pwd=WnVBS0JkVmRCT0hCQlBJUjZBeXVmUT09</a></p>
 </li>
-<li><p>Meeting ID: 950 6759 1586</p>
+<li><p>Meeting ID: 989 4268 3588</p>
 </li>
 <li><p>Passcode: 6132020</p>
 </li>
@@ -13116,12 +13119,12 @@ div#notebook {
 <li>Contact: yi.lian@mail.mcgill.ca</li>
 <li>Office hours: by appointment</li>
 </ul>
-<h4 id="Objectives">Objectives<a class="anchor-link" href="#Objectives">&#182;</a></h4><ul>
+<h3 id="Objectives">Objectives<a class="anchor-link" href="#Objectives">&#182;</a></h3><ul>
 <li>R programming</li>
 <li>Hands-on data management and analysis</li>
 <li>Preparation for other courses</li>
 </ul>
-<h4 id="Evaluations">Evaluations<a class="anchor-link" href="#Evaluations">&#182;</a></h4><ul>
+<h3 id="Evaluations">Evaluations<a class="anchor-link" href="#Evaluations">&#182;</a></h3><ul>
 <li>Pass/fail<ul>
 <li>Attend*</li>
 <li>Participate*</li>
@@ -13135,7 +13138,7 @@ div#notebook {
 </ul>
 </li>
 </ul>
-<h4 id="Zoom-lectures">Zoom lectures<a class="anchor-link" href="#Zoom-lectures">&#182;</a></h4><ul>
+<h3 id="Zoom-lectures">Zoom lectures<a class="anchor-link" href="#Zoom-lectures">&#182;</a></h3><ul>
 <li>Please mute your microphone</li>
 <li>Please raise hand for questions and comments</li>
 <li>Lectures will be recorded and posted on myCourses</li>
@@ -13144,7 +13147,7 @@ div#notebook {
 </ul>
 </li>
 </ul>
-<h4 id="A-few-notes">A few notes<a class="anchor-link" href="#A-few-notes">&#182;</a></h4><ul>
+<h3 id="A-few-notes">A few notes<a class="anchor-link" href="#A-few-notes">&#182;</a></h3><ul>
 <li>Be patient<ul>
 <li>with yourself, with R, with me</li>
 </ul>
@@ -13167,7 +13170,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.-R-and-Rstudio">2. R and Rstudio<a class="anchor-link" href="#2.-R-and-Rstudio">&#182;</a></h3><ul>
+<h2 id="1.2-R-and-Rstudio">1.2 R and Rstudio<a class="anchor-link" href="#1.2-R-and-Rstudio">&#182;</a></h2><ul>
 <li>R Console<ul>
 <li>It can do everything</li>
 <li>Not very handy</li>
@@ -13188,7 +13191,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.-R-Markdown">3. R Markdown<a class="anchor-link" href="#3.-R-Markdown">&#182;</a></h3><ul>
+<h2 id="1.3-R-Markdown">1.3 R Markdown<a class="anchor-link" href="#1.3-R-Markdown">&#182;</a></h2><ul>
 <li>A sample answer for your assignment</li>
 <li>Cheatsheet <a href="https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf">https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf</a></li>
 </ul>
@@ -13196,6 +13199,3221 @@ div#notebook {
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="-Lecture-2"><a id="l2" /> <a href="#toc">Lecture 2</a><a class="anchor-link" href="#-Lecture-2">&#182;</a></h1><h2 id="2.1-Basic-computations-in-R">2.1 Basic computations in R<a class="anchor-link" href="#2.1-Basic-computations-in-R">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1">########## Lecture 2 ##########</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="m">2+5</span>
+<span class="m">2-5</span>
+<span class="m">2</span><span class="o">*</span><span class="m">5</span>
+<span class="m">2</span><span class="o">/</span><span class="m">5</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+7
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+-3
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+10
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+0.4
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="m">2e3</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+2000
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="m">2</span><span class="o">^</span><span class="m">3</span><span class="p">;</span> <span class="m">8</span><span class="o">^</span><span class="p">(</span><span class="m">1</span><span class="o">/</span><span class="m">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+8
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+2
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">sqrt</span><span class="p">(</span><span class="m">4</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+2
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">log</span><span class="p">(</span><span class="m">4</span><span class="p">)</span>    <span class="c1"># Natural log</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+1.38629436111989
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">exp</span><span class="p">(</span><span class="m">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+7.38905609893065
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.2-Create-an-R-object">2.2 Create an R object<a class="anchor-link" href="#2.2-Create-an-R-object">&#182;</a></h2><ul>
+<li>Re-use the values by simply calling the the object<ul>
+<li>Reproducibility!</li>
+<li>Avoid potential loss of precision</li>
+<li>Avoid repeating expensive computation</li>
+</ul>
+</li>
+<li>Can use variable names that make sense to yourself and to others<ul>
+<li>so that the others or the future you can better understand what you did</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># Usually</span>
+<span class="n">x</span> <span class="o">&lt;-</span> <span class="m">5</span>
+<span class="n">x</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+5
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">y</span> <span class="o">&lt;-</span> <span class="n">z</span> <span class="o">&lt;-</span> <span class="m">6</span>
+<span class="n">y</span>
+<span class="n">z</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+6
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+6
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># &lt;- , = and -&gt; are equivalent when we assign values</span>
+<span class="n">instructor</span> <span class="o">&lt;-</span> <span class="s">&quot;Yi&quot;</span>
+<span class="n">course</span> <span class="o">=</span> <span class="s">&quot;EPIB 613&quot;</span>
+<span class="s">&quot;Fall 2020&quot;</span> <span class="o">-&gt;</span> <span class="n">semester</span>
+
+<span class="n">instructor</span><span class="p">;</span> <span class="n">course</span><span class="p">;</span> <span class="n">semester</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+'Yi'
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+'EPIB 613'
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+'Fall 2020'
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Calculations-with-stored-R-objects">Calculations with stored R objects<a class="anchor-link" href="#Calculations-with-stored-R-objects">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+11
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">one.over.three</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">/</span><span class="m">3</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">one.over.three</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1] 0.3333333
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">one.over.three</span> <span class="o">*</span> <span class="m">3</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+1
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># If we copy-paste the result instead of saving it in an object</span>
+<span class="m">0.3333333</span> <span class="o">*</span> <span class="m">3</span>
+<span class="c1"># loss of precision</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+0.9999999
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="R-is-case-sensitive.">R is case sensitive.<a class="anchor-link" href="#R-is-case-sensitive.">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">course</span> <span class="o">&lt;-</span> <span class="s">&quot;EPIB 613&quot;</span>
+<span class="n">Course</span> <span class="o">&lt;-</span> <span class="s">&quot;EPIB 601&quot;</span>
+<span class="n">course</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+'EPIB 613'
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-old-value-will-be-replaced-by-the-new-one.">The old value will be replaced by the new one.<a class="anchor-link" href="#The-old-value-will-be-replaced-by-the-new-one.">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">x</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+5
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">y</span>
+<span class="n">x</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+6
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h6 id="Rule-for-creating-an-object:">Rule for creating an object:<a class="anchor-link" href="#Rule-for-creating-an-object:">&#182;</a></h6><ul>
+<li>Variables can be alphabetic or alphanumeric, but not numeric (you are not allowed to create numeric variables).</li>
+<li>There are no restrictions to the length of the variable name.</li>
+<li>Avoid using the single letter names c, g, t, C, D, F, I and T as they are default names that are used by R. For instance, T and F are abbreviations for TRUE and FALSE in logical operations. We should avoid using names that are already used by the system.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.3-Data-types">2.3 Data types<a class="anchor-link" href="#2.3-Data-types">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">number</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+'numeric'
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># As in most programming languages, there are integers and floating-point numbers in R</span>
+<span class="nf">class</span><span class="p">(</span><span class="m">5L</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+'integer'
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># Double precision floating-point numbers in R</span>
+<span class="c1"># is.double() checks whether an object is a double precision floating-point number</span>
+<span class="nf">is.double</span><span class="p">(</span><span class="m">5</span><span class="p">);</span> <span class="nf">is.double</span><span class="p">(</span><span class="m">5L</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+TRUE
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+FALSE
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># How precise is double precision?</span>
+<span class="nf">print</span><span class="p">(</span><span class="m">1</span><span class="o">/</span><span class="m">3</span><span class="p">)</span>
+<span class="nf">options</span><span class="p">(</span><span class="n">digits</span> <span class="o">=</span> <span class="m">22</span><span class="p">)</span> <span class="c1"># show more decimal points</span>
+<span class="nf">print</span><span class="p">(</span><span class="m">1</span><span class="o">/</span><span class="m">3</span><span class="p">)</span>
+<span class="nf">options</span><span class="p">(</span><span class="n">digits</span> <span class="o">=</span> <span class="m">7</span><span class="p">)</span> <span class="c1"># reset to default</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1] 0.3333333
+[1] 0.3333333333333333148296
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="kc">letters</span> <span class="o">&lt;-</span> <span class="kc">letters</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">];</span> <span class="kc">letters</span>
+<span class="nf">class</span><span class="p">(</span><span class="kc">letters</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>'a'</li>
+	<li>'b'</li>
+	<li>'c'</li>
+</ol>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+'character'
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">logical</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">,</span> <span class="kc">FALSE</span><span class="p">)</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">logical</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+'logical'
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">factor</span> <span class="o">&lt;-</span> <span class="nf">as.factor</span><span class="p">(</span><span class="kc">letters</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]);</span> <span class="nf">print</span><span class="p">(</span><span class="n">factor</span><span class="p">)</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">factor</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1] a b c
+Levels: a b c
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+'factor'
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.4-Data-structures">2.4 Data structures<a class="anchor-link" href="#2.4-Data-structures">&#182;</a></h2><h3 id="2.4.1*-Scalar">2.4.1* Scalar<a class="anchor-link" href="#2.4.1*-Scalar">&#182;</a></h3><p>Not considered as a stand-alone data structure because it is basically a vector of length 1.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="m">5</span><span class="p">;</span> <span class="n">x</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+5
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.4.2-Vector">2.4.2 Vector<a class="anchor-link" href="#2.4.2-Vector">&#182;</a></h3><p>In R, we work with vectors.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">days.per.month</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">31</span><span class="p">,</span><span class="m">28</span><span class="p">,</span><span class="m">31</span><span class="p">,</span><span class="m">30</span><span class="p">,</span><span class="m">31</span><span class="p">,</span><span class="m">30</span><span class="p">,</span><span class="m">31</span><span class="p">,</span><span class="m">31</span><span class="p">,</span><span class="m">30</span><span class="p">,</span><span class="m">31</span><span class="p">,</span><span class="m">30</span><span class="p">,</span><span class="m">31</span><span class="p">)</span>
+<span class="n">days.per.month</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>31</li>
+	<li>28</li>
+	<li>31</li>
+	<li>30</li>
+	<li>31</li>
+	<li>30</li>
+	<li>31</li>
+	<li>31</li>
+	<li>30</li>
+	<li>31</li>
+	<li>30</li>
+	<li>31</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># We can add names to the vector for each entry</span>
+<span class="nf">names</span><span class="p">(</span><span class="n">days.per.month</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;jan&#39;</span><span class="p">,</span> <span class="s">&#39;feb&#39;</span><span class="p">,</span> <span class="s">&#39;mar&#39;</span><span class="p">,</span> <span class="s">&#39;apr&#39;</span><span class="p">,</span> 
+                           <span class="s">&#39;may&#39;</span><span class="p">,</span> <span class="s">&#39;jun&#39;</span><span class="p">,</span> <span class="s">&#39;jul&#39;</span><span class="p">,</span> <span class="s">&#39;aug&#39;</span><span class="p">,</span>
+                           <span class="s">&#39;sep&#39;</span><span class="p">,</span> <span class="s">&#39;oct&#39;</span><span class="p">,</span> <span class="s">&#39;nov&#39;</span><span class="p">,</span> <span class="s">&#39;dec&#39;</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">days.per.month</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>jan feb mar apr may jun jul aug sep oct nov dec 
+ 31  28  31  30  31  30  31  31  30  31  30  31 
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># But the names will not affect calculations.</span>
+<span class="nf">sum</span><span class="p">(</span><span class="n">days.per.month</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+365
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.4.3-Matrix">2.4.3 Matrix<a class="anchor-link" href="#2.4.3-Matrix">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">mymatrix1</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="o">:</span><span class="m">14</span><span class="p">),</span> <span class="n">nrow</span> <span class="o">=</span> <span class="m">4</span><span class="p">,</span> <span class="n">byrow</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">mymatrix1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>     [,1] [,2] [,3]
+[1,]    3    4    5
+[2,]    6    7    8
+[3,]    9   10   11
+[4,]   12   13   14
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">mymatrix2</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="o">:</span><span class="m">14</span><span class="p">),</span> <span class="n">nrow</span> <span class="o">=</span> <span class="m">4</span><span class="p">,</span> <span class="n">byrow</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">mymatrix2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>     [,1] [,2] [,3]
+[1,]    3    7   11
+[2,]    4    8   12
+[3,]    5    9   13
+[4,]    6   10   14
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">rownames</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;row1&quot;</span><span class="p">,</span> <span class="s">&quot;row2&quot;</span><span class="p">,</span> <span class="s">&quot;row3&quot;</span><span class="p">,</span> <span class="s">&quot;row4&quot;</span><span class="p">)</span>
+<span class="n">colnames</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;col1&quot;</span><span class="p">,</span> <span class="s">&quot;col2&quot;</span><span class="p">,</span> <span class="s">&quot;col3&quot;</span><span class="p">)</span>
+<span class="nf">rownames</span><span class="p">(</span><span class="n">mymatrix1</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">rownames</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">mymatrix1</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">colnames</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">mymatrix1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>     col1 col2 col3
+row1    3    4    5
+row2    6    7    8
+row3    9   10   11
+row4   12   13   14
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.4.4-Array">2.4.4 Array<a class="anchor-link" href="#2.4.4-Array">&#182;</a></h3><p>Scalars, vectors and matrices are basically all arrays of different dimensions</p>
+<ul>
+<li>Scalar: 1 x 1 array</li>
+<li>Vector of length k: 1 x k array</li>
+<li>Matrix of dimension m x n: m x n array</li>
+</ul>
+<p>R treats these lower-dimensional ($\leq2$) arrays differently but they are essentially not very different. Python treats them in the same way.</p>
+<p>Now let's look at a 3-dimensional array.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">myarray</span> <span class="o">&lt;-</span> <span class="nf">array</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">24</span><span class="p">,</span> <span class="n">dim</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">myarray</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>, , 1
+
+     [,1] [,2] [,3]
+[1,]    1    5    9
+[2,]    2    6   10
+[3,]    3    7   11
+[4,]    4    8   12
+
+, , 2
+
+     [,1] [,2] [,3]
+[1,]   13   17   21
+[2,]   14   18   22
+[3,]   15   19   23
+[4,]   16   20   24
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="A-demonstration-of-high-dimensional-arrays---why-is-it-useful?">A demonstration of high dimensional arrays - why is it useful?<a class="anchor-link" href="#A-demonstration-of-high-dimensional-arrays---why-is-it-useful?">&#182;</a></h5><p>Fake data:</p>
+<ul>
+<li>Drug: 1 = Exposed, 0 = Unexposed</li>
+<li>Cured: 1 = Yes, 0 = No</li>
+<li>BMI category: 1, 2, 3</li>
+<li>Age category: 1, 2, 3, 4</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># Don&#39;t worry about the data generating process.</span>
+<span class="nf">set.seed</span><span class="p">(</span><span class="m">6132020</span><span class="p">)</span> <span class="c1"># Make random numbers generated from sample() reproducible.</span>
+
+<span class="c1"># A fake observation study</span>
+<span class="c1"># Randomly assign ~60% of patients to take drug</span>
+<span class="n">drug</span> <span class="o">&lt;-</span> <span class="nf">sample</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span> <span class="n">size</span> <span class="o">=</span> <span class="m">100</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">prob</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0.6</span><span class="p">,</span> <span class="m">0.4</span><span class="p">))</span>
+
+<span class="c1"># Randomly assign ~20% of patients to be cured with or without taking the drug.</span>
+<span class="n">cured</span> <span class="o">&lt;-</span> <span class="nf">sample</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span> <span class="n">size</span> <span class="o">=</span> <span class="m">100</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">prob</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0.2</span><span class="p">,</span> <span class="m">0.8</span><span class="p">))</span>
+
+<span class="c1"># Some factors that may affect the efficacy of the drug</span>
+<span class="n">bmi.cat</span> <span class="o">&lt;-</span> <span class="nf">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="m">100</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span> <span class="c1"># Randomly assign BMI categories</span>
+<span class="n">age.cat</span> <span class="o">&lt;-</span> <span class="nf">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="m">100</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span> <span class="c1"># Randomly assign age categories</span>
+
+<span class="n">data</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">drug</span><span class="p">,</span> <span class="n">cured</span><span class="p">,</span> <span class="n">bmi.cat</span><span class="p">,</span> <span class="n">age.cat</span><span class="p">)</span> <span class="c1"># Make our data frame</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="m">10</span><span class="p">)</span>
+
+<span class="c1"># The table below shows the first 10 rows of the fake dataset.</span>
+<span class="c1"># This is a typical dataset you will see in Epidemiology.</span>
+<span class="c1"># Each row is a patient, with their own information.</span>
+<span class="c1"># Goal is to assess the drug effectiveness.</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<caption>A data.frame: 10 × 4</caption>
+<thead>
+	<tr><th scope=col>drug</th><th scope=col>cured</th><th scope=col>bmi.cat</th><th scope=col>age.cat</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>0</td><td>1</td><td>1</td><td>4</td></tr>
+	<tr><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+	<tr><td>1</td><td>1</td><td>3</td><td>2</td></tr>
+	<tr><td>0</td><td>1</td><td>2</td><td>1</td></tr>
+	<tr><td>0</td><td>1</td><td>2</td><td>3</td></tr>
+	<tr><td>0</td><td>0</td><td>3</td><td>3</td></tr>
+	<tr><td>1</td><td>0</td><td>3</td><td>1</td></tr>
+	<tr><td>1</td><td>1</td><td>2</td><td>2</td></tr>
+	<tr><td>0</td><td>0</td><td>2</td><td>3</td></tr>
+	<tr><td>0</td><td>1</td><td>2</td><td>1</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># By tabulating the data, we can assess the association (EPIB 601 material).</span>
+<span class="c1"># If we only tabulate drug and outcome (cured or not), we get a 2x2 table</span>
+    <span class="c1">## which is a matrix or a 2-dimensional array.</span>
+<span class="c1"># 1st dimension: drug, 2nd dimension: cured</span>
+
+<span class="nf">table</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;drug&quot;</span><span class="p">,</span> <span class="s">&quot;cured&quot;</span><span class="p">)])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_text output_subarea ">
+<pre>    cured
+drug  0  1
+   0 13 52
+   1  9 26</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># This may not be enough, we want to see how people with different BMI may differ.</span>
+    <span class="c1">## Confounder, also 601 material</span>
+<span class="c1"># We now need a 2x2x3 table, which is a 3-dimensional array.</span>
+<span class="c1"># 1st dimension: drug, 2nd dimension: cured, 3rd dimension: bmi.cat</span>
+
+<span class="nf">table</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;drug&quot;</span><span class="p">,</span> <span class="s">&quot;cured&quot;</span><span class="p">,</span> <span class="s">&quot;bmi.cat&quot;</span><span class="p">)])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_text output_subarea ">
+<pre>, , bmi.cat = 1
+
+    cured
+drug  0  1
+   0  3 17
+   1  3  5
+
+, , bmi.cat = 2
+
+    cured
+drug  0  1
+   0  7 21
+   1  4 12
+
+, , bmi.cat = 3
+
+    cured
+drug  0  1
+   0  3 14
+   1  2  9
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># Further include age to see how age category comes into the association</span>
+<span class="c1"># We now need a 2x2x3x4 table, which is a 4-dimensional array.</span>
+<span class="c1"># 1st dimension: drug, 2nd dimension: cured, 3rd dimension: bmi.cat, 4th dimension: age.cat</span>
+
+<span class="c1"># table(data)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.4.5-Data-frames">2.4.5 Data frames<a class="anchor-link" href="#2.4.5-Data-frames">&#182;</a></h3><p>Data frame is the most commonly used data structure in R. Its columns can have different types. All elements of any column must have the same type, i.e. all numeric or all factor, or all character.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">names</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Lucy&quot;</span><span class="p">,</span> <span class="s">&quot;John&quot;</span><span class="p">,</span> <span class="s">&quot;Mark&quot;</span><span class="p">,</span> <span class="s">&quot;Candy&quot;</span><span class="p">)</span>
+<span class="n">score</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">67</span><span class="p">,</span> <span class="m">56</span><span class="p">,</span> <span class="m">87</span><span class="p">,</span> <span class="m">91</span><span class="p">)</span>
+<span class="n">pass</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="bp">T</span><span class="p">,</span> <span class="bp">F</span><span class="p">,</span> <span class="bp">T</span><span class="p">,</span> <span class="bp">T</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">score</span><span class="p">,</span> <span class="n">pass</span><span class="p">);</span> <span class="nf">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>  names score  pass
+1  Lucy    67  TRUE
+2  John    56 FALSE
+3  Mark    87  TRUE
+4 Candy    91  TRUE
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">score</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>67</li>
+	<li>56</li>
+	<li>87</li>
+	<li>91</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">str</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="c1"># checking the structure of an object</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&#39;data.frame&#39;:	4 obs. of  3 variables:
+ $ names: Factor w/ 4 levels &#34;Candy&#34;,&#34;John&#34;,..: 3 2 4 1
+ $ score: num  67 56 87 91
+ $ pass : logi  TRUE FALSE TRUE TRUE
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.4.6-List">2.4.6 List<a class="anchor-link" href="#2.4.6-List">&#182;</a></h3><p>In above data structures, data types and dimensions have to match. But not in lists.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">mylist</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="s">&quot;Red&quot;</span><span class="p">,</span> <span class="nf">factor</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">)),</span> <span class="nf">c</span><span class="p">(</span><span class="m">21</span><span class="p">,</span><span class="m">32</span><span class="p">,</span><span class="m">11</span><span class="p">),</span> <span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[1]]
+[1] &#34;Red&#34;
+
+[[2]]
+[1] a b
+Levels: a b
+
+[[3]]
+[1] 21 32 11
+
+[[4]]
+[1] TRUE
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">str</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>List of 4
+ $ : chr &#34;Red&#34;
+ $ : Factor w/ 2 levels &#34;a&#34;,&#34;b&#34;: 1 2
+ $ : num [1:3] 21 32 11
+ $ : logi TRUE
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.4.7*-Factors">2.4.7* Factors<a class="anchor-link" href="#2.4.7*-Factors">&#182;</a></h3><p>In many online tutorials, factor is considered as a data structure - among vectors, matrices, etc.</p>
+<p>In my opinion, factor is a data type.</p>
+<p>Doesn't really matter.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">ch.letter</span> <span class="o">&lt;-</span> <span class="kc">letters</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">ch.letter</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1] &#34;a&#34; &#34;b&#34; &#34;c&#34;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="n">ch.letter</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+'character'
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">fac.letter</span> <span class="o">&lt;-</span> <span class="nf">as.factor</span><span class="p">(</span><span class="kc">letters</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">])</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">fac.letter</span><span class="p">)</span>
+<span class="c1"># Note the additional &#39;Levels: a b c&#39; in the output</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1] a b c
+Levels: a b c
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="n">fac.letter</span><span class="p">)</span>
+<span class="c1"># Should factor be considered as a data structure or a data type?</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+'factor'
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">factor</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+	<li>6</li>
+	<li>7</li>
+	<li>8</li>
+	<li>9</li>
+	<li>10</li>
+</ol>
+
+<details>
+	<summary style=display:list-item;cursor:pointer>
+		<strong>Levels</strong>:
+	</summary>
+	<ol class=list-inline>
+		<li>'1'</li>
+		<li>'2'</li>
+		<li>'3'</li>
+		<li>'4'</li>
+		<li>'5'</li>
+		<li>'6'</li>
+		<li>'7'</li>
+		<li>'8'</li>
+		<li>'9'</li>
+		<li>'10'</li>
+	</ol>
+</details>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.5-How-to-generate-data">2.5 How to generate data<a class="anchor-link" href="#2.5-How-to-generate-data">&#182;</a></h2><h5 id="Usually-we-start-with-vectors,-by-using-the-ombinations-of-the-following">Usually we start with vectors, by using the ombinations of the following<a class="anchor-link" href="#Usually-we-start-with-vectors,-by-using-the-ombinations-of-the-following">&#182;</a></h5><ul>
+<li>c( )</li>
+<li>seq( )</li>
+<li>rep( )</li>
+<li>sequence( )</li>
+</ul>
+<h5 id="Then-we-can-these-vectors-into-higher-dimensional-data-structures-we-just-learned.">Then we can these vectors into higher dimensional data structures we just learned.<a class="anchor-link" href="#Then-we-can-these-vectors-into-higher-dimensional-data-structures-we-just-learned.">&#182;</a></h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">c</span><span class="p">(</span><span class="m">-1</span><span class="p">,</span> <span class="m">5.44</span><span class="p">,</span> <span class="m">100</span><span class="p">,</span> <span class="m">34123</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>-1</li>
+	<li>5.44</li>
+	<li>100</li>
+	<li>34123</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="m">-1</span><span class="o">:</span><span class="m">10</span> <span class="c1"># Integers, by increments of 1.</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>-1</li>
+	<li>0</li>
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+	<li>6</li>
+	<li>7</li>
+	<li>8</li>
+	<li>9</li>
+	<li>10</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span> <span class="o">=</span> <span class="m">0.33</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="m">9.33</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="m">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>0.33</li>
+	<li>3.33</li>
+	<li>6.33</li>
+	<li>9.33</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="m">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>0</li>
+	<li>0.25</li>
+	<li>0.5</li>
+	<li>0.75</li>
+	<li>1</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">rep</span><span class="p">(</span><span class="m">1.2</span><span class="p">,</span> <span class="n">times</span> <span class="o">=</span> <span class="m">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>1.2</li>
+	<li>1.2</li>
+	<li>1.2</li>
+	<li>1.2</li>
+	<li>1.2</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">rep</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;six&quot;</span><span class="p">,</span> <span class="s">&quot;one&quot;</span><span class="p">,</span> <span class="s">&quot;three&quot;</span><span class="p">),</span> <span class="n">times</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>'six'</li>
+	<li>'one'</li>
+	<li>'three'</li>
+	<li>'six'</li>
+	<li>'one'</li>
+	<li>'three'</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">rep</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;six&quot;</span><span class="p">,</span> <span class="s">&quot;one&quot;</span><span class="p">,</span> <span class="s">&quot;three&quot;</span><span class="p">),</span> <span class="n">each</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>'six'</li>
+	<li>'six'</li>
+	<li>'one'</li>
+	<li>'one'</li>
+	<li>'three'</li>
+	<li>'three'</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">sequence</span><span class="p">(</span><span class="m">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">sequence</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">6</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+	<li>6</li>
+	<li>1</li>
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># Can you make a numeric vector (-4, -3, -2, 0, 0.5, 1, 0, 0.5, 1, 1, 1, 2, 2, 3, 3)?</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.6-Operators">2.6 Operators<a class="anchor-link" href="#2.6-Operators">&#182;</a></h2><h3 id="2.6.1-Arithmetic-operators">2.6.1 Arithmetic operators<a class="anchor-link" href="#2.6.1-Arithmetic-operators">&#182;</a></h3><h6 id="Vector-operations">Vector operations<a class="anchor-link" href="#Vector-operations">&#182;</a></h6>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">a</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">8</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">4</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">a</span><span class="m">+1</span> <span class="c1"># here 1 is considered as a vector (1, 1, 1)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>2</li>
+	<li>9</li>
+	<li>9</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">a</span><span class="o">+</span><span class="n">b</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>3</li>
+	<li>16</li>
+	<li>12</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">a</span><span class="o">*</span><span class="n">b</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>2</li>
+	<li>64</li>
+	<li>32</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">a</span><span class="o">^</span><span class="m">2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>1</li>
+	<li>64</li>
+	<li>64</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="Element-wise-operations">Element-wise operations<a class="anchor-link" href="#Element-wise-operations">&#182;</a></h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h6 id="Matrix-operations">Matrix operations<a class="anchor-link" href="#Matrix-operations">&#182;</a></h6><p>Also element-wise</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">c</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">),</span> <span class="n">nrow</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">byrow</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">8</span><span class="p">),</span> <span class="n">nrow</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">byrow</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">c</span><span class="p">);</span> <span class="nf">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>     [,1] [,2]
+[1,]    1    2
+[2,]    3    4
+     [,1] [,2]
+[1,]    5    7
+[2,]    6    8
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[63]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">c</span><span class="m">+1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<caption>A matrix: 2 × 2 of type dbl</caption>
+<tbody>
+	<tr><td>2</td><td>3</td></tr>
+	<tr><td>4</td><td>5</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">c</span><span class="o">+</span><span class="n">d</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<caption>A matrix: 2 × 2 of type dbl</caption>
+<tbody>
+	<tr><td>6</td><td> 9</td></tr>
+	<tr><td>9</td><td>12</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[65]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">c</span><span class="o">*</span><span class="n">d</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<caption>A matrix: 2 × 2 of type dbl</caption>
+<tbody>
+	<tr><td> 5</td><td>14</td></tr>
+	<tr><td>18</td><td>32</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">c</span><span class="o">^</span><span class="m">2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<caption>A matrix: 2 × 2 of type dbl</caption>
+<tbody>
+	<tr><td>1</td><td> 4</td></tr>
+	<tr><td>9</td><td>16</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="Exercise">Exercise<a class="anchor-link" href="#Exercise">&#182;</a></h5><p>Try taking the sum of a matrix and a vector, what does R do?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="(Optional)-If-you-know-linear-algebra---cross-product,-dot-product,-etc.">(Optional) If you know linear algebra - cross product, dot product, etc.<a class="anchor-link" href="#(Optional)-If-you-know-linear-algebra---cross-product,-dot-product,-etc.">&#182;</a></h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[67]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">a</span> <span class="o">%*%</span> <span class="n">b</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<caption>A matrix: 1 × 1 of type dbl</caption>
+<tbody>
+	<tr><td>98</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[68]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">a</span> <span class="o">%o%</span> <span class="n">b</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<caption>A matrix: 3 × 3 of type dbl</caption>
+<tbody>
+	<tr><td> 2</td><td> 8</td><td> 4</td></tr>
+	<tr><td>16</td><td>64</td><td>32</td></tr>
+	<tr><td>16</td><td>64</td><td>32</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[69]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">c</span> <span class="o">%*%</span> <span class="n">d</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<caption>A matrix: 2 × 2 of type dbl</caption>
+<tbody>
+	<tr><td>17</td><td>23</td></tr>
+	<tr><td>39</td><td>53</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.6.2-Logical-operators">2.6.2 Logical operators<a class="anchor-link" href="#2.6.2-Logical-operators">&#182;</a></h3><p>Operators that return TRUE or FALSE</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[70]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># Recall vector a and b from above.</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">a</span><span class="p">);</span> <span class="nf">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1] 1 8 8
+[1] 2 8 4
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[71]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="c1"># Equal or not?</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>FALSE</li>
+	<li>TRUE</li>
+	<li>FALSE</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[72]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">a</span> <span class="o">!=</span> <span class="n">b</span> <span class="c1"># Not equal?</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>TRUE</li>
+	<li>FALSE</li>
+	<li>TRUE</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[73]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>FALSE</li>
+	<li>FALSE</li>
+	<li>TRUE</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[74]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>TRUE</li>
+	<li>TRUE</li>
+	<li>FALSE</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[75]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># And</span>
+<span class="n">a</span><span class="p">;</span> <span class="n">b</span>
+<span class="n">a</span><span class="o">&gt;</span><span class="m">5</span> <span class="o">&amp;</span> <span class="n">b</span><span class="o">&gt;</span><span class="m">5</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>1</li>
+	<li>8</li>
+	<li>8</li>
+</ol>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>2</li>
+	<li>8</li>
+	<li>4</li>
+</ol>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>FALSE</li>
+	<li>TRUE</li>
+	<li>FALSE</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[76]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># Or</span>
+<span class="n">a</span><span class="o">&gt;=</span><span class="m">5</span> <span class="o">|</span> <span class="n">b</span><span class="o">&gt;=</span><span class="m">5</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>FALSE</li>
+	<li>TRUE</li>
+	<li>TRUE</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[77]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="s">&quot;ABC&quot;</span> <span class="o">==</span> <span class="s">&quot;ABC&quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+TRUE
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[78]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="s">&quot;ABC&quot;</span> <span class="o">==</span> <span class="s">&quot;abc&quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+FALSE
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[79]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="kc">TRUE</span> <span class="o">+</span> <span class="kc">TRUE</span> <span class="o">+</span> <span class="kc">FALSE</span> <span class="c1"># True = 1, False = 0.</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+2
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
@@ -13209,148 +16427,20 @@ div#notebook {
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span>
-</pre></div>
-
-    </div>
-</div>
-</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="Exercise">Exercise<a class="anchor-link" href="#Exercise">&#182;</a></h5><ol>
+<li>There are 5 students - a, b, c, d, e</li>
+<li>Their EPIB 607 scores are 80, 99, 55, 70, 84</li>
+<li>Their EPIB 613 scores are 85, 90, 62, 40, 88</li>
+<li>Scores are curved up by 10%</li>
+<li>Passing grade is 65%</li>
+<li>Assemble all of these information into a data frame, with columns indicating the course, score before curving, score after curving, pass/fail status. Each student will have two rows (one for each course).</li>
+</ol>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span>
-</pre></div>
-
-    </div>
 </div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
 </div>
     </div>
   </div>
