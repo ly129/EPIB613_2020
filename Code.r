@@ -43,7 +43,7 @@ one.over.three * 3
 
 course <- "EPIB 613"
 Course <- "EPIB 601"
-course
+Course
 
 x
 
@@ -66,14 +66,17 @@ options(digits = 22) # show more decimal points
 print(1/3)
 options(digits = 7) # reset to default
 
-letters <- letters[1:3]; letters
-class(letters)
+letter <- letters[1:3]; letter
+class(letter)
 
 logical <- c(TRUE, FALSE)
 class(logical)
 
 factor <- as.factor(letters[1:3]); print(factor)
 class(factor)
+
+mixed.factor <- factor(c(1,3,4,23423, "epib", "fall2020", T, F))
+mixed.factor
 
 x <- 5; x
 
@@ -118,7 +121,10 @@ cured <- sample(c(0,1), size = 100, replace = TRUE, prob = c(0.2, 0.8))
 bmi.cat <- sample(1:3, size = 100, replace = TRUE) # Randomly assign BMI categories
 age.cat <- sample(1:4, size = 100, replace = TRUE) # Randomly assign age categories
 
-data <- data.frame(drug, cured, bmi.cat, age.cat) # Make our data frame
+sex <- as.character(sample(c("female", "male"), size = 100, replace = TRUE))
+
+data <- data.frame(drug, cured, bmi.cat, age.cat, sex) # Make our data frame
+data$sex <- as.character(data$sex)
 head(data, 10)
 
 # The table below shows the first 10 rows of the fake dataset.
@@ -130,6 +136,9 @@ head(data, 10)
 # If we only tabulate drug and outcome (cured or not), we get a 2x2 table
     ## which is a matrix or a 2-dimensional array.
 # 1st dimension: drug, 2nd dimension: cured
+
+data$drug <- factor(data$drug, levels = c(1,0))
+data$cured <- factor(data$cured, levels = c(1,0))
 
 table(data[c("drug", "cured")])
 
@@ -151,11 +160,9 @@ score <- c(67, 56, 87, 91)
 pass <- c(T, F, T, T)
 df <- data.frame(names, score, pass); print(df)
 
-score
-
 str(df) # checking the structure of an object
 
-mylist <- list("Red", factor(c("a","b")), c(21,32,11), TRUE)
+mylist <- list("Red", factor(c("a","b")), matrix(c(21,32,11, 22,1,1), nrow = 3), TRUE)
 print(mylist)
 
 str(mylist)
@@ -176,7 +183,11 @@ factor(1:10)
 
 c(-1, 5.44, 100, 34123)
 
+c(-1, "epib")
+
 -1:10 # Integers, by increments of 1.
+
+(-1:10) * 0.1
 
 seq(from = 0.33, to = 9.33, by = 3)
 
@@ -194,8 +205,13 @@ sequence(c(6, 1, 3))
 
 # Can you make a numeric vector (-4, -3, -2, 0, 0.5, 1, 0, 0.5, 1, 1, 1, 2, 2, 3, 3)?
 
+c(-4:-2, rep(seq(from = 0, to = 1, by = .5), times = 2), rep(c(1,2,3), each = 2))
+
+(0:2) * 0.5
+
 a <- c(1, 8, 8)
 b <- c(2, 8, 4)
+a; b
 
 a+1 # here 1 is considered as a vector (1, 1, 1)
 
@@ -216,6 +232,11 @@ c+d
 c*d
 
 c^2
+
+a
+sum(a)
+
+c; rowSums(c)
 
 a %*% b
 
@@ -247,4 +268,28 @@ a>=5 | b>=5
 
 TRUE + TRUE + FALSE # True = 1, False = 0.
 
+random.numbers <- rnorm(10)* 100;
+random.numbers
 
+random.numbers > 10
+# How many?
+sum(random.numbers>10)
+
+
+
+students<- c('a','b','c','d','e')
+scores.607 <- c(80, 99, 55, 70, 84)
+scores.613 <-c(85, 90, 62, 40, 88)
+Curved.607 <-scores.607 *1.1
+Curved.613<-scores.613*1.1
+Pass.607<-c(T,T,F,T,T)
+Pass.613<-c(T,T,T,F,T)
+Df<-data.frame(students, scores.607, scores.613, Curved.607, Curved.613, Pass.607, Pass.613)
+Df
+
+students <- c(rep(letters[1:5], times = 2))
+scores <-  c(80, 99, 55, 70, 84, 85, 90, 62, 40, 88)
+course <- rep(c("epib607", "epib613"), each = 5)
+curve <- scores*1.1
+pass <- curve >= 65 
+df <- data.frame(students, course, scores, curve, pass); df
