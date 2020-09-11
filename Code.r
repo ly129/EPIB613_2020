@@ -183,7 +183,7 @@ factor(1:10)
 
 c(-1, 5.44, 100, 34123)
 
-c(-1, "epib")
+c(-1, "epib")   # a character '-1'
 
 -1:10 # Integers, by increments of 1.
 
@@ -274,8 +274,6 @@ random.numbers
 random.numbers > 10
 # How many?
 sum(random.numbers>10)
-
-
 
 students<- c('a','b','c','d','e')
 scores.607 <- c(80, 99, 55, 70, 84)
