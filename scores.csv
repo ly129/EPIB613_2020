@@ -1,0 +1,11 @@
+"","students","course","scores","curve","pass"
+"1","Lucy","epib607",80,88,TRUE
+"2","John","epib607",99,108.9,TRUE
+"3","Mark","epib607",55,60.5,FALSE
+"4","Candy","epib607",70,77,TRUE
+"5","Chris","epib607",84,92.4,TRUE
+"6","Lucy","epib613",85,93.5,TRUE
+"7","John","epib613",90,99,TRUE
+"8","Mark","epib613",62,68.2,TRUE
+"9","Candy","epib613",40,44,FALSE
+"10","Chris","epib613",88,96.8,TRUE
