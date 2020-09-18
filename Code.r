@@ -316,6 +316,8 @@ vector[index.integer]
 # Re-order
 vector[c(5,4,3,2,1)]
 
+vector
+
 order.index <- order(vector, decreasing = F)
 order.index
 
@@ -347,6 +349,8 @@ vector["century"]
 index.character <- c("course level", "course code")
 vector[index.character]
 
+vector[rep("century", 3)]
+
 matrix <- matrix(c(3:14), nrow = 4, byrow = TRUE)
 print(matrix)
 # Note that the indices are given.
@@ -363,9 +367,11 @@ matrix[ , c(1, 3)]
 # Change the order of columns. 
 matrix[ , c(3, 1)]
 
-# Row 1 and 2, column 2 and 4
+# Column 1 and 2, row 2 and 4
+matrix[c(2,4), c(1,2)]
 
 # Delete the 3rd row
+matrix[-3, ]
 
 rownames(matrix)
 colnames(matrix)
@@ -381,6 +387,8 @@ matrix
 rownames(matrix)
 colnames(matrix)
 
+matrix(1:12, nrow = 4, dimnames = list(row.names, col.names))
+
 matrix["row1", ]
 # The output is a named vector as a result of dimension reduction
 
@@ -395,12 +403,15 @@ array[2, 3, 2]
 
 array[1, , 2]
 
+array[ , 1 , ]
+
 df <- data.frame(names = c("Lucy", "John", "Mark", "Candy"),
                  score = c(67, 56, 87, 91))
 
-print(df)
+df
 
 df[2, ]
+str(df[2, ])
 # What is the structure of the result? Why?
 
 df[ , 1]
@@ -422,12 +433,18 @@ str(df)
 
 summary(df$score)
 
-str(summary(score))
+str(summary(df$score))
+
+summary(df$score)[3]
+
+attr(summary(df$score), "names")
 
 # What is John's score?
 df[df$names == "John",]
 
 # How does this work?
+df$names
+df$names == "John"
 
 # Anyone scored 100?
 print(df[df$score == 100,])
@@ -453,7 +470,11 @@ df[ , c("score", "names")]
 list <- list("Red", factor(c("a","b")), c(21,32,11), TRUE)
 print(list)
 
-list[3]
+# single bracket gives the entire "sub-list"
+# double bracket gives the R object stored in the "sub-list"
+print(list[3])
+
+list[3][[1]]
 
 list[[3]]
 
@@ -466,7 +487,9 @@ list[[3]][2]
 named.list <- list(course = "EPIB 613",
                    year = 2020,
                    pass.fail = T)
-named.list
+print(named.list)
+
+str(named.list)
 
 named.list$year
 
@@ -481,3 +504,20 @@ head(cancer)
 
 df
 write.csv(df, file = "~/Desktop/df.csv")
+
+exercise.l3 <- read.csv("https://raw.githubusercontent.com/ly129/EPIB613_2020/master/scores.csv")
+
+exercise.l3 <- exercise.l3[exercise.l3$course == "epib607", c("students", "course", "scores")]
+
+exercise.l3$students <- letters[1:5]
+
+sample.index <- sample(1:5, size = 3, replace = F)
+
+exercise.l3 <- exercise.l3[sample.index, ]
+
+exercise.l3 <- exercise.l3[order(exercise.l3$scores, decreasing = T), ]
+
+exercise.l3
+
+# save.image("path/xxxx.RData")
+# write.csv(exercise.l3, "path/xxxx.csv")
