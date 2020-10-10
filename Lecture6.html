@@ -13082,7 +13082,7 @@ div#notebook {
 <li>Missing value</li>
 <li>Useful functions</li>
 </ul>
-<h2 id="6.1-Control-structure">6.1 Control structure<a class="anchor-link" href="#6.1-Control-structure">&#182;</a></h2><p><b>Loops</b> and <b>if-else conditions</b> are very important structures in most programming language.</p>
+<h2 id="6.1-Control-structure">6.1 Control structure<a class="anchor-link" href="#6.1-Control-structure">&#182;</a></h2><p><b>Loops</b> and <b>if-else conditions</b> are very important structures in most programming languages.</p>
 <p>See ?Control</p>
 <p>R is more efficient with vectorized operations but not loops. I taught a workshop on efficient coding and computing and explaied why. Here is the link: <a href="https://github.com/ly129/MiCM2020">https://github.com/ly129/MiCM2020</a></p>
 <h3 id="6.1.1-For-loop">6.1.1 For loop<a class="anchor-link" href="#6.1.1-For-loop">&#182;</a></h3><h4 id="When-we-know-how-many-iterations-we-want-to-perform.">When we know how many iterations we want to perform.<a class="anchor-link" href="#When-we-know-how-many-iterations-we-want-to-perform.">&#182;</a></h4>
@@ -13131,6 +13131,8 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="m">11</span><span class="o">:</span><span class="m">15</span>
+<span class="n">n</span> <span class="o">&lt;-</span> <span class="nf">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
 <span class="nf">for </span><span class="p">(</span><span class="n">index</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="p">{</span>
     <span class="n">x</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="m">2</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
 <span class="p">}</span>
@@ -13174,9 +13176,37 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Vectorized operation?</span>
+<span class="n">x</span> <span class="o">&lt;-</span> <span class="m">11</span><span class="o">:</span><span class="m">15</span>
+<span class="n">x</span> <span class="o">&lt;-</span> <span class="n">x</span> <span class="o">*</span> <span class="m">2</span><span class="p">;</span> <span class="n">x</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>22</li>
+	<li>24</li>
+	<li>26</li>
+	<li>28</li>
+	<li>30</li>
+</ol>
+
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13297,7 +13327,7 @@ div#notebook {
 <span class="nf">while </span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">x</span> <span class="o">&lt;-</span> <span class="n">x</span> <span class="o">+</span> <span class="m">1</span>
     <span class="n">iteration</span> <span class="o">&lt;-</span> <span class="n">iteration</span> <span class="o">+</span> <span class="m">1</span>
-    <span class="nf">cat</span><span class="p">(</span><span class="s">&quot;iteration&quot;</span><span class="p">,</span> <span class="n">iteration</span><span class="p">,</span> <span class="s">&quot;, x = &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s">&quot;\n&quot;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+    <span class="nf">cat</span><span class="p">(</span><span class="s">&quot;iteration &quot;</span><span class="p">,</span> <span class="n">iteration</span><span class="p">,</span> <span class="s">&quot;, x = &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s">&quot;\n&quot;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 
 <span class="n">x</span>
@@ -13317,10 +13347,10 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>iteration1, x = 2
-iteration2, x = 3
-iteration3, x = 4
-iteration4, x = 5
+<pre>iteration 1, x = 2
+iteration 2, x = 3
+iteration 3, x = 4
+iteration 4, x = 5
 </pre>
 </div>
 </div>
@@ -13442,9 +13472,55 @@ $$ \text{integer } 9/2 \rightarrow 9 = \underbrace{4}_{\text{integer division}} 
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># y %% x</span>
 <span class="c1"># y %/% x</span>
+
+<span class="n">y</span> <span class="o">&lt;-</span> <span class="m">9</span>
+<span class="n">x</span> <span class="o">&lt;-</span> <span class="m">2</span>
+<span class="n">counter</span> <span class="o">&lt;-</span> <span class="m">0</span>
+
+<span class="nf">while </span><span class="p">(</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">y</span> <span class="o">&lt;-</span> <span class="n">y</span> <span class="o">-</span> <span class="n">x</span>
+    <span class="n">counter</span> <span class="o">&lt;-</span> <span class="n">counter</span> <span class="o">+</span> <span class="m">1</span>
+<span class="p">}</span>
+
+<span class="n">integer.div</span> <span class="o">&lt;-</span> <span class="n">counter</span>
+<span class="n">modulus</span> <span class="o">&lt;-</span> <span class="n">y</span>
+
+<span class="n">integer.div</span>
+<span class="n">modulus</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+4
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+1
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13512,6 +13588,7 @@ $$ \text{integer } 9/2 \rightarrow 9 = \underbrace{4}_{\text{integer division}} 
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Mr. Programmer</span>
 <span class="n">watermelon</span> <span class="o">&lt;-</span> <span class="bp">F</span>
+
 <span class="n">pro.orange</span> <span class="o">&lt;-</span> <span class="nf">if </span><span class="p">(</span><span class="n">watermelon</span> <span class="o">==</span> <span class="kc">TRUE</span><span class="p">)</span> <span class="p">{</span>
     <span class="s">&quot;Buy 1 orange&quot;</span>
 <span class="p">}</span> <span class="n">else</span> <span class="p">{</span>
@@ -13552,6 +13629,7 @@ $$ \text{integer } 9/2 \rightarrow 9 = \underbrace{4}_{\text{integer division}} 
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># I prefer a simple function, ifelse(test, yes, no)</span>
+
 <span class="n">watermelon</span> <span class="o">&lt;-</span> <span class="bp">F</span>
 <span class="nf">ifelse</span><span class="p">(</span><span class="n">watermelon</span> <span class="o">==</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">yes</span> <span class="o">=</span> <span class="s">&quot;Buy 1 orange&quot;</span><span class="p">,</span> <span class="n">no</span> <span class="o">=</span> <span class="s">&quot;Buy 6 oranges&quot;</span><span class="p">)</span>
 </pre></div>
@@ -13627,6 +13705,52 @@ $$ \text{integer } 9/2 \rightarrow 9 = \underbrace{4}_{\text{integer division}} 
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># vectorized operation</span>
+<span class="n">df</span><span class="o">$</span><span class="n">pass2</span> <span class="o">&lt;-</span> <span class="n">df</span><span class="o">$</span><span class="n">score</span><span class="o">&gt;=</span><span class="m">65</span><span class="p">;</span><span class="n">df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<caption>A data.frame: 4 × 5</caption>
+<thead>
+	<tr><th scope=col>names</th><th scope=col>score</th><th scope=col>curved</th><th scope=col>pass</th><th scope=col>pass2</th></tr>
+	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;lgl&gt;</th><th scope=col>&lt;lgl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>Lucy </td><td>67</td><td>82</td><td> TRUE</td><td> TRUE</td></tr>
+	<tr><td>John </td><td>56</td><td>75</td><td>FALSE</td><td>FALSE</td></tr>
+	<tr><td>Mark </td><td>87</td><td>93</td><td> TRUE</td><td> TRUE</td></tr>
+	<tr><td>Candy</td><td>91</td><td>95</td><td> TRUE</td><td> TRUE</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13636,7 +13760,7 @@ $$ \text{integer } 9/2 \rightarrow 9 = \underbrace{4}_{\text{integer division}} 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Mr. Pro explains why he comes home with one orange for 3 times.</span>
@@ -13709,7 +13833,7 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">df.copy</span> <span class="o">&lt;-</span> <span class="n">df</span>
@@ -13733,16 +13857,16 @@ Because they have watermelons!  X 3
 
 <div class="output_html rendered_html output_subarea ">
 <table>
-<caption>A data.frame: 4 × 4</caption>
+<caption>A data.frame: 4 × 5</caption>
 <thead>
-	<tr><th scope=col>names</th><th scope=col>score</th><th scope=col>curved</th><th scope=col>pass</th></tr>
-	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;lgl&gt;</th></tr>
+	<tr><th scope=col>names</th><th scope=col>score</th><th scope=col>curved</th><th scope=col>pass</th><th scope=col>pass2</th></tr>
+	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;lgl&gt;</th><th scope=col>&lt;lgl&gt;</th></tr>
 </thead>
 <tbody>
-	<tr><td>Lucy </td><td>67</td><td>82</td><td> TRUE</td></tr>
-	<tr><td>John </td><td>NA</td><td>75</td><td>FALSE</td></tr>
-	<tr><td>NA   </td><td>87</td><td>93</td><td> TRUE</td></tr>
-	<tr><td>Candy</td><td>91</td><td>95</td><td> TRUE</td></tr>
+	<tr><td>Lucy </td><td>67</td><td>82</td><td> TRUE</td><td> TRUE</td></tr>
+	<tr><td>John </td><td>NA</td><td>75</td><td>FALSE</td><td>FALSE</td></tr>
+	<tr><td>NA   </td><td>87</td><td>93</td><td> TRUE</td><td> TRUE</td></tr>
+	<tr><td>Candy</td><td>91</td><td>95</td><td> TRUE</td><td> TRUE</td></tr>
 </tbody>
 </table>
 
@@ -13756,7 +13880,7 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">is.na</span><span class="p">(</span><span class="n">df.copy</span><span class="p">)</span>
@@ -13778,15 +13902,15 @@ Because they have watermelons!  X 3
 
 <div class="output_html rendered_html output_subarea ">
 <table>
-<caption>A matrix: 4 × 4 of type lgl</caption>
+<caption>A matrix: 4 × 5 of type lgl</caption>
 <thead>
-	<tr><th scope=col>names</th><th scope=col>score</th><th scope=col>curved</th><th scope=col>pass</th></tr>
+	<tr><th scope=col>names</th><th scope=col>score</th><th scope=col>curved</th><th scope=col>pass</th><th scope=col>pass2</th></tr>
 </thead>
 <tbody>
-	<tr><td>FALSE</td><td>FALSE</td><td>FALSE</td><td>FALSE</td></tr>
-	<tr><td>FALSE</td><td> TRUE</td><td>FALSE</td><td>FALSE</td></tr>
-	<tr><td> TRUE</td><td>FALSE</td><td>FALSE</td><td>FALSE</td></tr>
-	<tr><td>FALSE</td><td>FALSE</td><td>FALSE</td><td>FALSE</td></tr>
+	<tr><td>FALSE</td><td>FALSE</td><td>FALSE</td><td>FALSE</td><td>FALSE</td></tr>
+	<tr><td>FALSE</td><td> TRUE</td><td>FALSE</td><td>FALSE</td><td>FALSE</td></tr>
+	<tr><td> TRUE</td><td>FALSE</td><td>FALSE</td><td>FALSE</td><td>FALSE</td></tr>
+	<tr><td>FALSE</td><td>FALSE</td><td>FALSE</td><td>FALSE</td><td>FALSE</td></tr>
 </tbody>
 </table>
 
@@ -13800,7 +13924,7 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Total number of cells with missing values</span>
@@ -13833,7 +13957,7 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Whether a data point (row) is complete</span>
@@ -13872,7 +13996,7 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="o">!</span><span class="nf">complete.cases</span><span class="p">(</span><span class="n">df.copy</span><span class="p">)</span>
@@ -13910,7 +14034,7 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Complete data points</span>
@@ -13933,14 +14057,14 @@ Because they have watermelons!  X 3
 
 <div class="output_html rendered_html output_subarea ">
 <table>
-<caption>A data.frame: 2 × 4</caption>
+<caption>A data.frame: 2 × 5</caption>
 <thead>
-	<tr><th></th><th scope=col>names</th><th scope=col>score</th><th scope=col>curved</th><th scope=col>pass</th></tr>
-	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;lgl&gt;</th></tr>
+	<tr><th></th><th scope=col>names</th><th scope=col>score</th><th scope=col>curved</th><th scope=col>pass</th><th scope=col>pass2</th></tr>
+	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;lgl&gt;</th><th scope=col>&lt;lgl&gt;</th></tr>
 </thead>
 <tbody>
-	<tr><th scope=row>1</th><td>Lucy </td><td>67</td><td>82</td><td>TRUE</td></tr>
-	<tr><th scope=row>4</th><td>Candy</td><td>91</td><td>95</td><td>TRUE</td></tr>
+	<tr><th scope=row>1</th><td>Lucy </td><td>67</td><td>82</td><td>TRUE</td><td>TRUE</td></tr>
+	<tr><th scope=row>4</th><td>Candy</td><td>91</td><td>95</td><td>TRUE</td><td>TRUE</td></tr>
 </tbody>
 </table>
 
@@ -13954,7 +14078,7 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Taking the average score</span>
@@ -13987,7 +14111,7 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">mean</span><span class="p">(</span><span class="n">df.copy</span><span class="o">$</span><span class="n">score</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
@@ -14019,7 +14143,7 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">sum</span><span class="p">(</span><span class="n">df.copy</span><span class="o">$</span><span class="n">score</span><span class="p">)</span>
@@ -14064,7 +14188,7 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">na.omit</span><span class="p">(</span><span class="n">df.copy</span><span class="p">)</span>
@@ -14086,14 +14210,14 @@ Because they have watermelons!  X 3
 
 <div class="output_html rendered_html output_subarea ">
 <table>
-<caption>A data.frame: 2 × 4</caption>
+<caption>A data.frame: 2 × 5</caption>
 <thead>
-	<tr><th></th><th scope=col>names</th><th scope=col>score</th><th scope=col>curved</th><th scope=col>pass</th></tr>
-	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;lgl&gt;</th></tr>
+	<tr><th></th><th scope=col>names</th><th scope=col>score</th><th scope=col>curved</th><th scope=col>pass</th><th scope=col>pass2</th></tr>
+	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;lgl&gt;</th><th scope=col>&lt;lgl&gt;</th></tr>
 </thead>
 <tbody>
-	<tr><th scope=row>1</th><td>Lucy </td><td>67</td><td>82</td><td>TRUE</td></tr>
-	<tr><th scope=row>4</th><td>Candy</td><td>91</td><td>95</td><td>TRUE</td></tr>
+	<tr><th scope=row>1</th><td>Lucy </td><td>67</td><td>82</td><td>TRUE</td><td>TRUE</td></tr>
+	<tr><th scope=row>4</th><td>Candy</td><td>91</td><td>95</td><td>TRUE</td><td>TRUE</td></tr>
 </tbody>
 </table>
 
@@ -14107,7 +14231,20 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Options in R that deals with missingness</span>
@@ -14128,7 +14265,7 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Absolute value</span>
@@ -14161,10 +14298,10 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="nf">ceiling</span><span class="p">(</span><span class="m">3.14159</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="nf">ceiling</span><span class="p">(</span><span class="m">3.14159</span><span class="p">);</span> <span class="nf">ceiling</span><span class="p">(</span><span class="m">-3.14159</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14187,26 +14324,6 @@ Because they have watermelons!  X 3
 
 </div>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="nf">floor</span><span class="p">(</span><span class="m">3.14159</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
 <div class="output_area">
 
     <div class="prompt"></div>
@@ -14214,7 +14331,7 @@ Because they have watermelons!  X 3
 
 
 <div class="output_html rendered_html output_subarea ">
-3
+-3
 </div>
 
 </div>
@@ -14228,7 +14345,7 @@ Because they have watermelons!  X 3
 <div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="nf">trunc</span><span class="p">(</span><span class="m">3.14159</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="nf">floor</span><span class="p">(</span><span class="m">3.14159</span><span class="p">);</span> <span class="nf">floor</span><span class="p">(</span><span class="m">-3.14159</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14251,6 +14368,18 @@ Because they have watermelons!  X 3
 
 </div>
 
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+-4
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -14258,6 +14387,50 @@ Because they have watermelons!  X 3
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">trunc</span><span class="p">(</span><span class="m">3.14159</span><span class="p">);</span> <span class="nf">trunc</span><span class="p">(</span><span class="m">-3.14159</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+3
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+-3
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">signif</span><span class="p">(</span><span class="m">3.14159</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
@@ -14289,7 +14462,7 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">round</span><span class="p">(</span><span class="kc">pi</span><span class="p">,</span> <span class="n">digits</span> <span class="o">=</span> <span class="m">10</span><span class="p">)</span>
@@ -14328,24 +14501,42 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span>
+<div class=" highlight hl-r"><pre><span></span><span class="nf">floor</span><span class="p">(</span><span class="m">9</span><span class="o">/</span><span class="m">2</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+4
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">age</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">8</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">3</span><span class="p">)</span>
-<span class="n">weight</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">45</span><span class="p">,</span><span class="m">65</span><span class="p">,</span><span class="m">34</span><span class="p">)</span>
 <span class="n">age</span>
 </pre></div>
 
@@ -14385,7 +14576,39 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">sum</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+36
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">mean</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
@@ -14417,7 +14640,7 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">prod</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
@@ -14449,7 +14672,7 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">median</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
@@ -14481,7 +14704,7 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">var</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
@@ -14526,7 +14749,7 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">max</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
@@ -14588,7 +14811,49 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">age</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>1</li>
+	<li>6</li>
+	<li>4</li>
+	<li>5</li>
+	<li>8</li>
+	<li>5</li>
+	<li>4</li>
+	<li>3</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">which.max</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>   <span class="c1">#returns the index of the greatest element of x</span>
@@ -14633,7 +14898,7 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="m">0.25</span><span class="p">)</span>
@@ -14698,7 +14963,7 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">age</span>
@@ -14761,7 +15026,7 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">diff</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>   <span class="c1"># Replaces a vector by the vector of first differences</span>
@@ -14802,10 +15067,10 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="nf">sort</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">decreasing</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>   <span class="c1"># Sorts elements into order</span>
+<div class=" highlight hl-r"><pre><span></span><span class="nf">sort</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">decreasing</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>   <span class="c1"># Sorts elements into order</span>
 </pre></div>
 
     </div>
@@ -14824,14 +15089,14 @@ Because they have watermelons!  X 3
 
 <div class="output_html rendered_html output_subarea ">
 <ol class=list-inline>
-	<li>1</li>
-	<li>3</li>
-	<li>4</li>
-	<li>4</li>
-	<li>5</li>
-	<li>5</li>
-	<li>6</li>
 	<li>8</li>
+	<li>6</li>
+	<li>5</li>
+	<li>5</li>
+	<li>4</li>
+	<li>4</li>
+	<li>3</li>
+	<li>1</li>
 </ol>
 
 </div>
@@ -14844,7 +15109,7 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">order</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
@@ -14909,7 +15174,7 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">age</span>
@@ -14995,6 +15260,19 @@ Because they have watermelons!  X 3
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -15020,10 +15298,12 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="n">df</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">df</span><span class="o">$</span><span class="n">pass2</span> <span class="o">&lt;-</span> <span class="kc">NULL</span>
+<span class="n">df</span><span class="o">$</span><span class="n">student.no</span> <span class="o">&lt;-</span> <span class="kc">NULL</span>
+<span class="n">df</span>
 </pre></div>
 
     </div>
@@ -15065,7 +15345,7 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">){</span>
@@ -15113,7 +15393,7 @@ Because they have watermelons!  X 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">n</span> <span class="o">&lt;-</span> <span class="nf">nrow</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
@@ -15716,7 +15996,7 @@ height=420
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">find</span> <span class="o">&lt;-</span> <span class="s">&quot;epib&quot;</span>
@@ -15730,7 +16010,7 @@ height=420
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">grep</span><span class="p">(</span><span class="n">pattern</span> <span class="o">=</span> <span class="n">find</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">courses.EBOH</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
@@ -15766,7 +16046,7 @@ height=420
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">grep</span><span class="p">(</span><span class="n">pattern</span> <span class="o">=</span> <span class="n">find</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">courses.EBOH</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
@@ -15802,7 +16082,7 @@ height=420
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">grepl</span><span class="p">(</span><span class="n">pattern</span> <span class="o">=</span> <span class="n">find</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">courses.EBOH</span><span class="p">)</span>
@@ -15842,7 +16122,7 @@ height=420
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">gsub</span><span class="p">(</span><span class="n">pattern</span> <span class="o">=</span> <span class="n">find</span><span class="p">,</span> <span class="n">replacement</span> <span class="o">=</span> <span class="s">&quot;EPIB&quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">courses.EBOH</span><span class="p">)</span>
@@ -15882,7 +16162,7 @@ height=420
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">regexpr</span><span class="p">(</span><span class="n">pattern</span> <span class="o">=</span> <span class="n">find</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s">&quot;I&#39;m in epib 613! I&#39;m in epib 607.&quot;</span><span class="p">)</span>
@@ -15914,7 +16194,7 @@ height=420
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">gregexpr</span><span class="p">(</span><span class="n">pattern</span> <span class="o">=</span> <span class="n">find</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;I&#39;m in epib 613. I&#39;m in epib 607.&quot;</span><span class="p">,</span>
@@ -15953,6 +16233,44 @@ height=420
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">unlist</span><span class="p">(</span><span class="nf">gregexpr</span><span class="p">(</span><span class="n">pattern</span> <span class="o">=</span> <span class="n">find</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;I&#39;m in epib 613. I&#39;m in epib 607.&quot;</span><span class="p">,</span>
+                                  <span class="s">&quot;I prefer epib 613.&quot;</span><span class="p">)))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>8</li>
+	<li>25</li>
+	<li>10</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -15962,7 +16280,7 @@ height=420
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># ?sets</span>
@@ -15980,10 +16298,10 @@ height=420
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="prompt input_prompt">In&nbsp;[62]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="nf">union</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="nf">union</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -16021,7 +16339,44 @@ height=420
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[63]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">intersect</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[64]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">setdiff</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
@@ -16057,7 +16412,7 @@ height=420
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[65]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">setdiff</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
@@ -16093,7 +16448,7 @@ height=420
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[66]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">union</span><span class="p">(</span><span class="n">text1</span><span class="p">,</span> <span class="n">text2</span><span class="p">)</span>
@@ -16131,7 +16486,7 @@ height=420
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="prompt input_prompt">In&nbsp;[67]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">intersect</span><span class="p">(</span><span class="n">text1</span><span class="p">,</span> <span class="n">text2</span><span class="p">)</span>
@@ -16163,7 +16518,7 @@ height=420
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="prompt input_prompt">In&nbsp;[68]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">setequal</span><span class="p">(</span><span class="n">text1</span><span class="p">,</span> <span class="n">text2</span><span class="p">)</span>
