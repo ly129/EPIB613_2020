@@ -1,6 +1,6 @@
 # The structure
 
-func_name <- function(argument){
+func_name <- function(argument) {
     statement
 }
 
@@ -35,6 +35,10 @@ int.div <- function(a, b){
 
 # Recall: how do we access the modulus?
 result <- int.div(21, 4)
+result
+
+str(result)
+
 result$integer
 
 int.div <- function(a, b){
@@ -47,7 +51,9 @@ int.div(21, 4)
 int.div <- function(a, b){
     int <- a%/%b
     mod <- a%%b
-    return(c(a, b))
+    output <- c(int, mod)
+    names(output) <- c("integer", "modulus")
+    return(output)
 }
 int.div(21, 4)
 
@@ -79,9 +85,10 @@ data_summary <- function(func) {
     data <- read.csv("https://raw.githubusercontent.com/ly129/EPIB613_2020/master/scores.csv", header = TRUE)
     by(data = data$scores, INDICES = list(data$course), FUN = func)
 }
-data_summary(mean)
+data_summary(summary)
 
 times_2_by_default_dislikes_3_hates_4 <- function(a, b = 2){
+    
     if (b == 3) {
         warning("I dislike 3!")
     }
@@ -97,7 +104,7 @@ times_2_by_default_dislikes_3_hates_4(a = 6)
 
 times_2_by_default_dislikes_3_hates_4(a = 6, b = 3)
 
-# times_2_by_default_dislikes_3_hates_4(a = 6, b = 4)
+times_2_by_default_dislikes_3_hates_4(a = 6, b = 4)
 
 times_2_by_default_dislikes_3_hates_4(a = 6, b = 5)
 
@@ -108,7 +115,7 @@ course <- rep(c("epib601", "epib607", "epib613"), each = 5)
 scores <- sample(50:100, size = 15, replace = T)
 
 df <- data.frame(students, course, scores)
-df <- df[sample(1:nrow(df)), ]
+df <- df[sample(1:nrow(df)), ]   # shuffle the rows to make things more complicated
 df
 
 library(tidyverse)
@@ -124,3 +131,107 @@ df_long
 my_wider <- function(data, pivot, names_from, values_from) {
     
 }
+
+my_wider(df_long, pivot = "students", names_from = "course", values_from = "scores")
+
+# In-class progress
+my_longer <- function(data, pivot, cols, names_to, values_to) {
+    # Figure out # of pivots - rep the col names by this many times
+    n.pivot <- nrow(data)
+    cat("n.pivot = ", n.pivot, "\n")
+    
+    # Figure out # of columns - rep the pivots by this many times
+    n.col <- length(cols)
+    cat("n.col = ", n.col, "\n")
+    
+    # replicate to what we want
+    # (lucy, chris, ...) x n.col
+    pivot.rep <- rep(data[, pivot], n.col)
+    
+    # (epib601 x n.pivot, epib607 x n.pivot, epib613 x n.pivot)
+    name.rep <- rep(cols, each = n.pivot)
+    
+    # Extract the values - n.pivot by n.col
+    
+    # Transform to a vector of length (n.pivot x n.cols)
+    
+    # cbind rep'ed pivots, rep'ed col names, vectorized values
+    
+    # return
+}
+
+my_longer(df_wide,
+          pivot = "students",
+          cols = c("epib601", "epib607", "epib613"),
+          names_to = "course",
+          values_to = "scores")
+
+## A sample solution
+my_wider <- function(data, pivot, names_from, values_from) {
+  
+  # reorder data - to take advantage of 
+  data <- data[order(data[, pivot]), ]
+  data <- data[order(data[, names_from]), ]
+  
+  # get column names
+  col.names <- unique(data[, names_from])
+
+  # get number of columns - one for each course
+  n.col <- length(col.names)
+  
+  # generate pivot variable
+  pivot.var <- unique(data[, pivot])
+  
+  # generate number of pivots
+  n.pivot <- length(pivot.var)
+  
+  # generate value matrix
+  value.mat <- matrix(data[, values_from], nrow = n.pivot, ncol = n.col, byrow = F)
+  
+  # assemble wide data frame
+  data_wide <- data.frame(pivot.var, value.mat)
+  
+  # rename wide data frame
+  names(data_wide) <- c(pivot, as.character(col.names))
+  
+  return(data_wide)
+}
+
+df_wide <- my_wider(df, pivot = "students", names_from = "course", values_from = "scores")
+df_wide
+
+my_longer <- function(data, pivot, cols, names_to, values_to) {
+  
+  # extract the values
+  values <- data[, cols]
+  
+  # change it to a vector, by column
+  values <- as.vector(as.matrix(values))
+  
+  # determine number of cols
+  n.col <- length(cols)
+  
+  # rep the pivot variable
+  pivot.var <- rep(unlist(data[, pivot]), n.col)
+  
+  # determine the number of pivots
+  n.pivot <- nrow(data)
+  
+  # make the names_to variable
+  names_to.var <- rep(cols, each = n.pivot)
+  
+  # assemble long data frame
+  data.long <- data.frame(pivot.var, names_to.var, values)
+  
+  # rename long data frame
+  names(data.long) <- c(pivot, names_to, values_to)
+  
+  return(data.long)
+  
+}
+
+my_longer(df_wide,
+          pivot = "students",
+          cols = c("epib601", "epib607", "epib613"),
+          names_to = "course",
+          values_to = "scores")

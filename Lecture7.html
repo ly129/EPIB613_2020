@@ -13097,7 +13097,7 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># The structure</span>
 
-<span class="n">func_name</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">argument</span><span class="p">){</span>
+<span class="n">func_name</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">argument</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">statement</span>
 <span class="p">}</span>
 </pre></div>
@@ -13408,7 +13408,78 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Recall: how do we access the modulus?</span>
 <span class="n">result</span> <span class="o">&lt;-</span> <span class="nf">int.div</span><span class="p">(</span><span class="m">21</span><span class="p">,</span> <span class="m">4</span><span class="p">)</span>
-<span class="n">result</span><span class="o">$</span><span class="n">integer</span>
+<span class="n">result</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<dl>
+	<dt>$integer</dt>
+		<dd>5</dd>
+	<dt>$modulus</dt>
+		<dd>1</dd>
+</dl>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">str</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>List of 2
+ $ integer: num 5
+ $ modulus: num 1
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">result</span><span class="o">$</span><span class="n">integer</span>
 </pre></div>
 
     </div>
@@ -13437,7 +13508,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">int.div</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">){</span>
@@ -13476,13 +13547,15 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">int.div</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">){</span>
     <span class="n">int</span> <span class="o">&lt;-</span> <span class="n">a</span><span class="o">%/%</span><span class="n">b</span>
     <span class="n">mod</span> <span class="o">&lt;-</span> <span class="n">a</span><span class="o">%%</span><span class="n">b</span>
-    <span class="nf">return</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+    <span class="n">output</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">int</span><span class="p">,</span> <span class="n">mod</span><span class="p">)</span>
+    <span class="nf">names</span><span class="p">(</span><span class="n">output</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;integer&quot;</span><span class="p">,</span> <span class="s">&quot;modulus&quot;</span><span class="p">)</span>
+    <span class="nf">return</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
 <span class="p">}</span>
 <span class="nf">int.div</span><span class="p">(</span><span class="m">21</span><span class="p">,</span> <span class="m">4</span><span class="p">)</span>
 </pre></div>
@@ -13502,10 +13575,12 @@ div#notebook {
 
 
 <div class="output_html rendered_html output_subarea ">
-<ol class=list-inline>
-	<li>21</li>
-	<li>4</li>
-</ol>
+<dl class=dl-horizontal>
+	<dt>integer</dt>
+		<dd>5</dd>
+	<dt>modulus</dt>
+		<dd>1</dd>
+</dl>
 
 </div>
 
@@ -13525,7 +13600,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># No need to worry about the details here.</span>
@@ -13543,7 +13618,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Train my chatbot - AlphaGo style.</span>
@@ -13579,14 +13654,14 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">data_summary</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">func</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">data</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;https://raw.githubusercontent.com/ly129/EPIB613_2020/master/scores.csv&quot;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
     <span class="nf">by</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">$</span><span class="n">scores</span><span class="p">,</span> <span class="n">INDICES</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">data</span><span class="o">$</span><span class="n">course</span><span class="p">),</span> <span class="n">FUN</span> <span class="o">=</span> <span class="n">func</span><span class="p">)</span>
 <span class="p">}</span>
-<span class="nf">data_summary</span><span class="p">(</span><span class="n">mean</span><span class="p">)</span>
+<span class="nf">data_summary</span><span class="p">(</span><span class="n">summary</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13606,10 +13681,12 @@ div#notebook {
 
 <div class="output_text output_subarea ">
 <pre>: epib607
-[1] 77.6
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   55.0    70.0    80.0    77.6    84.0    99.0 
 ------------------------------------------------------------ 
 : epib613
-[1] 73</pre>
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+     40      62      85      73      88      90 </pre>
 </div>
 
 </div>
@@ -13627,10 +13704,11 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">times_2_by_default_dislikes_3_hates_4</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="m">2</span><span class="p">){</span>
+    
     <span class="nf">if </span><span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="m">3</span><span class="p">)</span> <span class="p">{</span>
         <span class="nf">warning</span><span class="p">(</span><span class="s">&quot;I dislike 3!&quot;</span><span class="p">)</span>
     <span class="p">}</span>
@@ -13650,7 +13728,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">times_2_by_default_dislikes_3_hates_4</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="m">6</span><span class="p">)</span>
@@ -13682,7 +13760,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">times_2_by_default_dislikes_3_hates_4</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="m">6</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="m">3</span><span class="p">)</span>
@@ -13726,20 +13804,42 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="c1"># times_2_by_default_dislikes_3_hates_4(a = 6, b = 4)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="nf">times_2_by_default_dislikes_3_hates_4</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="m">6</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="m">4</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+Error in times_2_by_default_dislikes_3_hates_4(a = 6, b = 4): I hate 4!
+Traceback:
+
+1. times_2_by_default_dislikes_3_hates_4(a = 6, b = 4)
+2. stop(&#34;I hate 4!&#34;)   # at line 8 of file &lt;text&gt;</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">times_2_by_default_dislikes_3_hates_4</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="m">6</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="m">5</span><span class="p">)</span>
@@ -13780,7 +13880,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Sample data</span>
@@ -13790,7 +13890,7 @@ div#notebook {
 <span class="n">scores</span> <span class="o">&lt;-</span> <span class="nf">sample</span><span class="p">(</span><span class="m">50</span><span class="o">:</span><span class="m">100</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="m">15</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
 
 <span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">students</span><span class="p">,</span> <span class="n">course</span><span class="p">,</span> <span class="n">scores</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">&lt;-</span> <span class="n">df</span><span class="p">[</span><span class="nf">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="nf">nrow</span><span class="p">(</span><span class="n">df</span><span class="p">)),</span> <span class="p">]</span>
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="n">df</span><span class="p">[</span><span class="nf">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="nf">nrow</span><span class="p">(</span><span class="n">df</span><span class="p">)),</span> <span class="p">]</span>   <span class="c1"># shuffle the rows to make things more complicated</span>
 <span class="n">df</span>
 </pre></div>
 
@@ -13844,7 +13944,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
@@ -13885,7 +13985,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">df_wide</span> <span class="o">&lt;-</span> <span class="nf">pivot_wider</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="n">names_from</span> <span class="o">=</span> <span class="n">course</span><span class="p">,</span> <span class="n">values_from</span> <span class="o">=</span> <span class="n">scores</span><span class="p">)</span>
@@ -13932,7 +14032,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">df_long</span> <span class="o">&lt;-</span> <span class="nf">pivot_longer</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df_wide</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="nf">contains</span><span class="p">(</span><span class="s">&quot;epib&quot;</span><span class="p">),</span> <span class="n">names_to</span> <span class="o">=</span> <span class="s">&quot;course&quot;</span><span class="p">,</span> <span class="n">values_to</span> <span class="o">=</span> <span class="s">&quot;scores&quot;</span><span class="p">)</span>
@@ -13989,7 +14089,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># ?dplyr::select # for how to select columns</span>
@@ -14010,15 +14110,274 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">my_wider</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">pivot</span><span class="p">,</span> <span class="n">names_from</span><span class="p">,</span> <span class="n">values_from</span><span class="p">)</span> <span class="p">{</span>
     
 <span class="p">}</span>
+
+<span class="nf">my_wider</span><span class="p">(</span><span class="n">df_long</span><span class="p">,</span> <span class="n">pivot</span> <span class="o">=</span> <span class="s">&quot;students&quot;</span><span class="p">,</span> <span class="n">names_from</span> <span class="o">=</span> <span class="s">&quot;course&quot;</span><span class="p">,</span> <span class="n">values_from</span> <span class="o">=</span> <span class="s">&quot;scores&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_text output_subarea ">
+<pre>NULL</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># In-class progress</span>
+<span class="n">my_longer</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">pivot</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="n">names_to</span><span class="p">,</span> <span class="n">values_to</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1"># Figure out # of pivots - rep the col names by this many times</span>
+    <span class="n">n.pivot</span> <span class="o">&lt;-</span> <span class="nf">nrow</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="nf">cat</span><span class="p">(</span><span class="s">&quot;n.pivot = &quot;</span><span class="p">,</span> <span class="n">n.pivot</span><span class="p">,</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Figure out # of columns - rep the pivots by this many times</span>
+    <span class="n">n.col</span> <span class="o">&lt;-</span> <span class="nf">length</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span>
+    <span class="nf">cat</span><span class="p">(</span><span class="s">&quot;n.col = &quot;</span><span class="p">,</span> <span class="n">n.col</span><span class="p">,</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># replicate to what we want</span>
+    <span class="c1"># (lucy, chris, ...) x n.col</span>
+    <span class="n">pivot.rep</span> <span class="o">&lt;-</span> <span class="nf">rep</span><span class="p">(</span><span class="n">data</span><span class="p">[,</span> <span class="n">pivot</span><span class="p">],</span> <span class="n">n.col</span><span class="p">)</span>
+    
+    <span class="c1"># (epib601 x n.pivot, epib607 x n.pivot, epib613 x n.pivot)</span>
+    <span class="n">name.rep</span> <span class="o">&lt;-</span> <span class="nf">rep</span><span class="p">(</span><span class="n">cols</span><span class="p">,</span> <span class="n">each</span> <span class="o">=</span> <span class="n">n.pivot</span><span class="p">)</span>
+    
+    <span class="c1"># Extract the values - n.pivot by n.col</span>
+    
+    <span class="c1"># Transform to a vector of length (n.pivot x n.cols)</span>
+    
+    <span class="c1"># cbind rep&#39;ed pivots, rep&#39;ed col names, vectorized values</span>
+    
+    <span class="c1"># return</span>
+<span class="p">}</span>
+
+<span class="nf">my_longer</span><span class="p">(</span><span class="n">df_wide</span><span class="p">,</span>
+          <span class="n">pivot</span> <span class="o">=</span> <span class="s">&quot;students&quot;</span><span class="p">,</span>
+          <span class="n">cols</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;epib601&quot;</span><span class="p">,</span> <span class="s">&quot;epib607&quot;</span><span class="p">,</span> <span class="s">&quot;epib613&quot;</span><span class="p">),</span>
+          <span class="n">names_to</span> <span class="o">=</span> <span class="s">&quot;course&quot;</span><span class="p">,</span>
+          <span class="n">values_to</span> <span class="o">=</span> <span class="s">&quot;scores&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>n.pivot =  5 
+n.col =  3 
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="A-sample-solution">A sample solution<a class="anchor-link" href="#A-sample-solution">&#182;</a></h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1">## A sample solution</span>
+<span class="n">my_wider</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">pivot</span><span class="p">,</span> <span class="n">names_from</span><span class="p">,</span> <span class="n">values_from</span><span class="p">)</span> <span class="p">{</span>
+  
+  <span class="c1"># reorder data - to take advantage of </span>
+  <span class="n">data</span> <span class="o">&lt;-</span> <span class="n">data</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">data</span><span class="p">[,</span> <span class="n">pivot</span><span class="p">]),</span> <span class="p">]</span>
+  <span class="n">data</span> <span class="o">&lt;-</span> <span class="n">data</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">data</span><span class="p">[,</span> <span class="n">names_from</span><span class="p">]),</span> <span class="p">]</span>
+  
+  <span class="c1"># get column names</span>
+  <span class="n">col.names</span> <span class="o">&lt;-</span> <span class="nf">unique</span><span class="p">(</span><span class="n">data</span><span class="p">[,</span> <span class="n">names_from</span><span class="p">])</span>
+
+  <span class="c1"># get number of columns - one for each course</span>
+  <span class="n">n.col</span> <span class="o">&lt;-</span> <span class="nf">length</span><span class="p">(</span><span class="n">col.names</span><span class="p">)</span>
+  
+  <span class="c1"># generate pivot variable</span>
+  <span class="n">pivot.var</span> <span class="o">&lt;-</span> <span class="nf">unique</span><span class="p">(</span><span class="n">data</span><span class="p">[,</span> <span class="n">pivot</span><span class="p">])</span>
+  
+  <span class="c1"># generate number of pivots</span>
+  <span class="n">n.pivot</span> <span class="o">&lt;-</span> <span class="nf">length</span><span class="p">(</span><span class="n">pivot.var</span><span class="p">)</span>
+  
+  <span class="c1"># generate value matrix</span>
+  <span class="n">value.mat</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="n">data</span><span class="p">[,</span> <span class="n">values_from</span><span class="p">],</span> <span class="n">nrow</span> <span class="o">=</span> <span class="n">n.pivot</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="n">n.col</span><span class="p">,</span> <span class="n">byrow</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
+  
+  <span class="c1"># assemble wide data frame</span>
+  <span class="n">data_wide</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">pivot.var</span><span class="p">,</span> <span class="n">value.mat</span><span class="p">)</span>
+  
+  <span class="c1"># rename wide data frame</span>
+  <span class="nf">names</span><span class="p">(</span><span class="n">data_wide</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">pivot</span><span class="p">,</span> <span class="nf">as.character</span><span class="p">(</span><span class="n">col.names</span><span class="p">))</span>
+  
+  <span class="nf">return</span><span class="p">(</span><span class="n">data_wide</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">df_wide</span> <span class="o">&lt;-</span> <span class="nf">my_wider</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">pivot</span> <span class="o">=</span> <span class="s">&quot;students&quot;</span><span class="p">,</span> <span class="n">names_from</span> <span class="o">=</span> <span class="s">&quot;course&quot;</span><span class="p">,</span> <span class="n">values_from</span> <span class="o">=</span> <span class="s">&quot;scores&quot;</span><span class="p">)</span>
+<span class="n">df_wide</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<caption>A data.frame: 5 × 4</caption>
+<thead>
+	<tr><th scope=col>students</th><th scope=col>epib601</th><th scope=col>epib607</th><th scope=col>epib613</th></tr>
+	<tr><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>Candy</td><td>68</td><td>80</td><td>61</td></tr>
+	<tr><td>Chris</td><td>64</td><td>56</td><td>53</td></tr>
+	<tr><td>John </td><td>78</td><td>98</td><td>59</td></tr>
+	<tr><td>Lucy </td><td>57</td><td>82</td><td>75</td></tr>
+	<tr><td>Mark </td><td>59</td><td>57</td><td>80</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">my_longer</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">pivot</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="n">names_to</span><span class="p">,</span> <span class="n">values_to</span><span class="p">)</span> <span class="p">{</span>
+  
+  <span class="c1"># extract the values</span>
+  <span class="n">values</span> <span class="o">&lt;-</span> <span class="n">data</span><span class="p">[,</span> <span class="n">cols</span><span class="p">]</span>
+  
+  <span class="c1"># change it to a vector, by column</span>
+  <span class="n">values</span> <span class="o">&lt;-</span> <span class="nf">as.vector</span><span class="p">(</span><span class="nf">as.matrix</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
+  
+  <span class="c1"># determine number of cols</span>
+  <span class="n">n.col</span> <span class="o">&lt;-</span> <span class="nf">length</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span>
+  
+  <span class="c1"># rep the pivot variable</span>
+  <span class="n">pivot.var</span> <span class="o">&lt;-</span> <span class="nf">rep</span><span class="p">(</span><span class="nf">unlist</span><span class="p">(</span><span class="n">data</span><span class="p">[,</span> <span class="n">pivot</span><span class="p">]),</span> <span class="n">n.col</span><span class="p">)</span>
+  
+  <span class="c1"># determine the number of pivots</span>
+  <span class="n">n.pivot</span> <span class="o">&lt;-</span> <span class="nf">nrow</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+  
+  <span class="c1"># make the names_to variable</span>
+  <span class="n">names_to.var</span> <span class="o">&lt;-</span> <span class="nf">rep</span><span class="p">(</span><span class="n">cols</span><span class="p">,</span> <span class="n">each</span> <span class="o">=</span> <span class="n">n.pivot</span><span class="p">)</span>
+  
+  <span class="c1"># assemble long data frame</span>
+  <span class="n">data.long</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">pivot.var</span><span class="p">,</span> <span class="n">names_to.var</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+  
+  <span class="c1"># rename long data frame</span>
+  <span class="nf">names</span><span class="p">(</span><span class="n">data.long</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">pivot</span><span class="p">,</span> <span class="n">names_to</span><span class="p">,</span> <span class="n">values_to</span><span class="p">)</span>
+  
+  <span class="nf">return</span><span class="p">(</span><span class="n">data.long</span><span class="p">)</span>
+  
+<span class="p">}</span>
+
+<span class="nf">my_longer</span><span class="p">(</span><span class="n">df_wide</span><span class="p">,</span>
+          <span class="n">pivot</span> <span class="o">=</span> <span class="s">&quot;students&quot;</span><span class="p">,</span>
+          <span class="n">cols</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;epib601&quot;</span><span class="p">,</span> <span class="s">&quot;epib607&quot;</span><span class="p">,</span> <span class="s">&quot;epib613&quot;</span><span class="p">),</span>
+          <span class="n">names_to</span> <span class="o">=</span> <span class="s">&quot;course&quot;</span><span class="p">,</span>
+          <span class="n">values_to</span> <span class="o">=</span> <span class="s">&quot;scores&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<caption>A data.frame: 15 × 3</caption>
+<thead>
+	<tr><th scope=col>students</th><th scope=col>course</th><th scope=col>scores</th></tr>
+	<tr><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;int&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>Candy</td><td>epib601</td><td>68</td></tr>
+	<tr><td>Chris</td><td>epib601</td><td>64</td></tr>
+	<tr><td>John </td><td>epib601</td><td>78</td></tr>
+	<tr><td>Lucy </td><td>epib601</td><td>57</td></tr>
+	<tr><td>Mark </td><td>epib601</td><td>59</td></tr>
+	<tr><td>Candy</td><td>epib607</td><td>80</td></tr>
+	<tr><td>Chris</td><td>epib607</td><td>56</td></tr>
+	<tr><td>John </td><td>epib607</td><td>98</td></tr>
+	<tr><td>Lucy </td><td>epib607</td><td>82</td></tr>
+	<tr><td>Mark </td><td>epib607</td><td>57</td></tr>
+	<tr><td>Candy</td><td>epib613</td><td>61</td></tr>
+	<tr><td>Chris</td><td>epib613</td><td>53</td></tr>
+	<tr><td>John </td><td>epib613</td><td>59</td></tr>
+	<tr><td>Lucy </td><td>epib613</td><td>75</td></tr>
+	<tr><td>Mark </td><td>epib613</td><td>80</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
 </div>
 </div>
 
