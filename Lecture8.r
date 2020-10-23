@@ -29,7 +29,7 @@ county_level
 nytcovcounty
 
 # Again breaks it down
-county.left_join <- left_join(x = nytcovcounty,
+county.left_join <- dplyr::left_join(x = nytcovcounty,
                               y = pop_county,
                               by = c("state","fips"))
 county.left_join
@@ -42,8 +42,16 @@ county.left_join.mutate.filter <- dplyr::filter(`.data` = county.left_join.mutat
                                                 state %in% c("Iowa","Illinois"))
 county.left_join.mutate.filter
 
-county.left_join.mutate.filter.group_by <- dplyr::group_by(`.data` = county.left_join.mutate.filter,
-                                                           cases)
+# Base R subset function covered in previous lectures
+# subset(x = county.left_join.mutate, subset = state %in% c("Iowa","Illinois"))
+
+# %in%
+
+1 %in% 1:3
+
+c("a", "b", "c") %in% c("a", "d", "e")
+
+county.left_join.mutate.filter.group_by <- dplyr::group_by(`.data` = county.left_join.mutate.filter, county)
 county.left_join.mutate.filter.group_by
 
 pop_state <- pop_county %>%
@@ -60,6 +68,10 @@ state_level <- county_level %>%
                   time = as.numeric(date - min(date)) + 1)
 state_level
 
+# order of factors in R
+# Check
+sort(factor(c("A", "b", "a", "ab", "a1", "c", "1", "1a", "!!!")))
+
 set.seed(613)
 students <- rep(c("Lucy", "John", "Mark", "Candy", "Chris"), 3)
 course <- rep(c("epib601", "epib607", "epib613"), each = 5)
@@ -70,7 +82,55 @@ df <- data.frame(students, course, scores, program)
 df <- df[sample(1:nrow(df)), ]   # shuffle the rows to make things more complicated
 df
 
+# the arguments will be
+    # data = df
+    # pivot = "students"
+    # names_from = "course"
+    # values_from = "scores"
+# Use the actually R objects and values to test
+# Finally put them into the function, substitute the actural values by argument names
+
+# reorder data - to take advantage of the ordering of factors
+df <- df[order(df[, "students"]), ]; df
+df <- df[order(df[, "course"]), ]; df
+
+# get column names
+col.names <- unique(df[, "course"])
+col.names
+
+# get number of columns - one for each course
+n.col <- length(col.names)
+n.col
+
+# generate pivot variable
+pivot.var <- unique(df[, "students"])
+pivot.var
+
+# generate number of pivots
+n.pivot <- length(pivot.var)
+n.pivot
+
+# generate value matrix
+value.mat <- matrix(df[, "scores"], nrow = n.pivot, ncol = n.col, byrow = F)
+value.mat
+
+# assemble wide data frame
+data_wide <- data.frame(pivot.var, value.mat)
+data_wide
+
+# rename wide data frame
+names(data_wide) <- c("student", as.character(col.names))
+data_wide
+
 ## A sample solution
+
+# Put the steps together into the function
+    # change df (the actual data frame) to data (argument name)
+    # change "students" to pivot
+    # change "course" to names_from
+    # change "scores" to values_from
+# so that the function can be applied to other similar data frames.
+
 my_wider <- function(data, pivot, names_from, values_from) {
   
   # reorder data - to take advantage of the ordering of factors
@@ -142,7 +202,22 @@ my_longer(df_wide,
 
 aggregate(scores ~ course, FUN = mean, data = df)
 
-aggregate(scores ~ course + program, FUN = mean, data = df)
+# df %>%
+#     dplyr::group_by() %>%
+#     dplyr::summarise()
+df %>%
+    group_by(course) %>%
+    summarise(scores=mean(scores))
+
+df[1,3] <- NA; df
+
+df %>%
+    group_by(course, program) %>%
+    summarise(scores=mean(scores))
+
+df %>%
+    group_by(course, program) %>%
+    summarise(scores=mean(scores, na.rm = T))
 
 mean.rounded <- function(x) {
     round(mean(x))
@@ -150,6 +225,23 @@ mean.rounded <- function(x) {
 
 aggregate(scores ~ course + program, FUN = mean.rounded, data = df)
 
+df %>%
+    group_by(course, program) %>%
+    summarise(scores = round(mean(scores)))
+
 df
 
 aggregate(scores ~ course, FUN = print, data = df)
+
+county_level
+
+illinois <- county_level[county_level$state == "Illinois", ]
+
+# aggregate(cases~county, FUN = plot, type = "l", data = illinois)
+
+as.factor(unique(illinois$county))
+
+# verify that we got the correct plots
+plot(illinois[illinois$county == "Adams", ]$cases, type = "l")
+
+
