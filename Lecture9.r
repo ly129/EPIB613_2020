@@ -14,6 +14,7 @@ county_level <- nytcovcounty %>%
     dplyr::group_by(county)
 # A subset that contains all dates after 2020-07-12 in Illinois
 illinois <- county_level[county_level$state == "Illinois" & county_level$date >= "2020-07-12", ]
+illinois[illinois$county == "Adams", ]
 
 my_wider <- function(data, pivot, names_from, values_from) {
   
@@ -75,15 +76,29 @@ my_longer <- function(data, pivot, cols, names_to, values_to) {
   
 }
 
-# Pivot_wider
+# Pivot_wider()
+pwide <- pivot_wider(data = illinois, id_cols = county, names_from = date, values_from = cases); head(pwide)
 
-# Pivot_longer
+# Pivot_longer()
+plong <- pivot_longer(data = pwide, cols = contains('2020'), names_to = "Date", values_to = "Cases")
+head(plong)
 
+# 
+today <- as.Date("2020-10-30")
+tomorrow <- as.Date("2020-10-31")
+class(today)
+
+as.numeric(today)
 
 # my_wider
+mwide <- my_wider(data = illinois, pivot = "county", names_from = "date", values_from = "cases")
+head(mwide)
 
 # my_longer
-
+mlong <- my_longer(data = mwide, pivot = "county",
+                   cols = grep(pattern = '2020', x = names(mwide)),
+                   names_to = "Date", values_to = "Cases")
+head(mlong)
 
 # Binomial distribution
 
@@ -97,7 +112,11 @@ plot(six, dbinom(six, size = 10, prob = 1/6),
      xlab = '# six',
      lwd = 10)
 
+dbinom(x = 3, size = 10, prob = 1/6)
 
+dbinom(x = 3, size = 10, prob = 0.2)
+
+dpois(x = 10, lambda = 5:7)
 
 x <- seq(-4, 4, length = 100)
 hx <- dnorm(x)
@@ -106,12 +125,12 @@ plot(x, hx, type = "l", lwd = 10,
      xlab = "x value", ylab = "Density",
      main = "Standard Normal Distribution")
 
-
+dnorm(x = 3, mean = 10, sd = sqrt(5))
 
 # what is quantile?
 set.seed(613)
 # uniformly sample between 50 and 100
-scores <- runif(n = 10, min = 50, max = 100)
+scores <- runif(n = 1000000, min = 50, max = 100)
 hist(scores)
 
 # The sample quantile
@@ -120,7 +139,9 @@ quantile(x = scores)
 # uniform distribution
 qunif(p = 0.25, min = 50, max = 100)
 
+qnorm(p = .95, mean = 5, sd = 2)
 
+qnorm(p = 0.025)
 
 x <- seq(-4, 4, length = 100)
 hx <- dnorm(x)
@@ -135,6 +156,8 @@ abline(v = qnorm(p = 0.025,
                  lower.tail = T),
        lwd = 5, col = 'red', lty = 2)
 
+pnorm(q = -1.95996398454005, mean = 0, sd = 1, lower.tail = T)
+
 plot(x, hx, type = "l", lwd = 10,
      xlab = "x value", ylab = "Density",
      main = "Standard Normal Distribution")
@@ -144,6 +167,8 @@ abline(v = qnorm(p = 0.025,
                  sd = 1,
                  lower.tail = F),
        lwd = 5, col = 'red', lty = 2)
+
+pnorm(q = -1.95996398454005, mean = 0, sd = 1, lower.tail = F)
 
 
 
