@@ -11,10 +11,13 @@ fit1 <- glm(admit~rank,
             data = df)
 summary(fit1)
 
-exp(fit1$coefficients)
+fit1
+fit1$coefficients[2]
+exp(fit1$coefficients[2])
 
-# CI for the odds ratio
-exp(confint(fit1, level = 0.95))
+expy <- exp(fit1$coefficients[1])
+
+expy / (1+expy)
 
 # Prediction
 # type = "response" gives the fitted probability
@@ -24,18 +27,23 @@ predict(fit1, type = "response", newdata = nd)
 # type = "link" give the fitted linear predictor
 predict(fit1, type = "link", newdata = nd)
 
+# CI for the odds ratio
+exp(confint(fit1, level = 0.95))
+
 fit2 <- glm(admit~gpa,
             family = binomial(),
             data = df)
 summary(fit2)
 # the link function for binomial family is logit by default - canonical link
 
-fit2$coefficients
+fit2$coefficients[2]
 
-exp(fit2$coefficients)
+exp(fit2$coefficients[2])
 
 # Predict the probability of admit given 4.0 GPA
-predict(fit2, newdata=data.frame(gpa=4), type="response")
+predict(fit2, newdata=data.frame(gpa=0), type="response")
+
+exp(fit2$coefficients[1]) / (1 + exp(fit2$coefficients[1]))
 
 fit3 <- glm(admit~., family = binomial(), data = df)
 summary(fit3)

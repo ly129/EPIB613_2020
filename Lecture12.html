@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>Lecture 12</title>
+<title>Lecture12</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13318,12 +13318,59 @@ Number of Fisher Scoring iterations: 4
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Equation rank0 $$ \log(\frac{p_0}{1-p_0})=\beta_0+\beta_1 \times 0 = \beta_0$$</p>
+<p>Equation rank1 $$ \log(\frac{p_1}{1-p_1})=\beta_0+\beta_1 \times 1 = \beta_0 + \beta_1$$</p>
+<p>(rank1 - rank0) give sthe log odds ratio $\beta_1$, why?</p>
+<p>LHS,
+$$ \log(\frac{p_1}{1-p_1}) -  \log(\frac{p_0}{1-p_0}) = \log(\frac{\frac{p_1}{1-p_1}}{\frac{p_0}{1-p_0}})$$
+$$\Bigg(\log(a) - \log(b) = \log(\frac{a}{b})\Bigg)$$</p>
+<p>RHS:
+$$ \beta_1$$</p>
+<p>Logit:</p>
+$$ y = logit(x) = \log(\frac{x}{1-x})$$<p>Expit:</p>
+$$ expit(y) = x $$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$ \exp(y) = \frac{x}{1-x} $$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$ \exp(y) - x \cdot \exp(y) = x $$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$ \exp(y) = (1+\exp(y))\cdot x $$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$  x = expit(y) = \frac{\exp(y)}{1+\exp(y)} = expit(y) $$
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="nf">exp</span><span class="p">(</span><span class="n">fit1</span><span class="o">$</span><span class="n">coefficients</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">fit1</span>
+<span class="n">fit1</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">2</span><span class="p">]</span>
+<span class="nf">exp</span><span class="p">(</span><span class="n">fit1</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">2</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -13340,14 +13387,43 @@ Number of Fisher Scoring iterations: 4
 
 
 
-<div class="output_html rendered_html output_subarea ">
-<style>
-.dl-inline {width: auto; margin:0; padding: 0}
-.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
-.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
-.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
-</style><dl class=dl-inline><dt>(Intercept)</dt><dd>0.696000000000002</dd><dt>rank</dt><dd>0.388319353836889</dd></dl>
 
+<div class="output_text output_subarea ">
+<pre>
+Call:  glm(formula = admit ~ rank, family = binomial(link = &#34;logit&#34;), 
+    data = df)
+
+Coefficients:
+(Intercept)         rank  
+    -0.3624      -0.9459  
+
+Degrees of Freedom: 399 Total (i.e. Null);  398 Residual
+Null Deviance:	    500 
+Residual Deviance: 481.7 	AIC: 485.7</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<strong>rank:</strong> -0.945927201001704
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<strong>rank:</strong> 0.388319353836889
 </div>
 
 </div>
@@ -13361,8 +13437,9 @@ Number of Fisher Scoring iterations: 4
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="c1"># CI for the odds ratio</span>
-<span class="nf">exp</span><span class="p">(</span><span class="nf">confint</span><span class="p">(</span><span class="n">fit1</span><span class="p">,</span> <span class="n">level</span> <span class="o">=</span> <span class="m">0.95</span><span class="p">))</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">expy</span> <span class="o">&lt;-</span> <span class="nf">exp</span><span class="p">(</span><span class="n">fit1</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">1</span><span class="p">])</span>
+
+<span class="n">expy</span> <span class="o">/</span> <span class="p">(</span><span class="m">1</span><span class="o">+</span><span class="n">expy</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13378,31 +13455,9 @@ Number of Fisher Scoring iterations: 4
     <div class="prompt"></div>
 
 
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Waiting for profiling to be done...
-
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
 
 <div class="output_html rendered_html output_subarea ">
-<table>
-<caption>A matrix: 2 × 2 of type dbl</caption>
-<thead>
-	<tr><th></th><th scope=col>2.5 %</th><th scope=col>97.5 %</th></tr>
-</thead>
-<tbody>
-	<tr><th scope=row>(Intercept)</th><td>0.5279583</td><td>0.9134167</td></tr>
-	<tr><th scope=row>rank</th><td>0.2473729</td><td>0.6017864</td></tr>
-</tbody>
-</table>
-
+<strong>(Intercept):</strong> 0.410377358490567
 </div>
 
 </div>
@@ -13499,6 +13554,61 @@ Number of Fisher Scoring iterations: 4
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># CI for the odds ratio</span>
+<span class="nf">exp</span><span class="p">(</span><span class="nf">confint</span><span class="p">(</span><span class="n">fit1</span><span class="p">,</span> <span class="n">level</span> <span class="o">=</span> <span class="m">0.95</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Waiting for profiling to be done...
+
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<caption>A matrix: 2 × 2 of type dbl</caption>
+<thead>
+	<tr><th></th><th scope=col>2.5 %</th><th scope=col>97.5 %</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>(Intercept)</th><td>0.5279583</td><td>0.9134167</td></tr>
+	<tr><th scope=row>rank</th><td>0.2473729</td><td>0.6017864</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13510,7 +13620,7 @@ Number of Fisher Scoring iterations: 4
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">fit2</span> <span class="o">&lt;-</span> <span class="nf">glm</span><span class="p">(</span><span class="n">admit</span><span class="o">~</span><span class="n">gpa</span><span class="p">,</span>
@@ -13569,48 +13679,10 @@ Number of Fisher Scoring iterations: 4
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="n">fit2</span><span class="o">$</span><span class="n">coefficients</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<style>
-.dl-inline {width: auto; margin:0; padding: 0}
-.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
-.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
-.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
-</style><dl class=dl-inline><dt>(Intercept)</dt><dd>-4.35758730334778</dd><dt>gpa</dt><dd>1.05110872619157</dd></dl>
-
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="nf">exp</span><span class="p">(</span><span class="n">fit2</span><span class="o">$</span><span class="n">coefficients</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">fit2</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">2</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -13628,13 +13700,7 @@ Number of Fisher Scoring iterations: 4
 
 
 <div class="output_html rendered_html output_subarea ">
-<style>
-.dl-inline {width: auto; margin:0; padding: 0}
-.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
-.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
-.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
-</style><dl class=dl-inline><dt>(Intercept)</dt><dd>0.0128092552447367</dd><dt>gpa</dt><dd>2.86082122777123</dd></dl>
-
+<strong>gpa:</strong> 1.05110872619157
 </div>
 
 </div>
@@ -13648,8 +13714,7 @@ Number of Fisher Scoring iterations: 4
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="c1"># Predict the probability of admit given 4.0 GPA</span>
-<span class="nf">predict</span><span class="p">(</span><span class="n">fit2</span><span class="p">,</span> <span class="n">newdata</span><span class="o">=</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">gpa</span><span class="o">=</span><span class="m">4</span><span class="p">),</span> <span class="n">type</span><span class="o">=</span><span class="s">&quot;response&quot;</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="nf">exp</span><span class="p">(</span><span class="n">fit2</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">2</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -13667,7 +13732,72 @@ Number of Fisher Scoring iterations: 4
 
 
 <div class="output_html rendered_html output_subarea ">
-<strong>1:</strong> 0.461786564607921
+<strong>gpa:</strong> 2.86082122777123
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># Predict the probability of admit given 4.0 GPA</span>
+<span class="nf">predict</span><span class="p">(</span><span class="n">fit2</span><span class="p">,</span> <span class="n">newdata</span><span class="o">=</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">gpa</span><span class="o">=</span><span class="m">0</span><span class="p">),</span> <span class="n">type</span><span class="o">=</span><span class="s">&quot;response&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<strong>1:</strong> 0.0126472533484516
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">exp</span><span class="p">(</span><span class="n">fit2</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">1</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="m">1</span> <span class="o">+</span> <span class="nf">exp</span><span class="p">(</span><span class="n">fit2</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">1</span><span class="p">]))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<strong>(Intercept):</strong> 0.0126472533484516
 </div>
 
 </div>
@@ -13685,7 +13815,7 @@ Number of Fisher Scoring iterations: 4
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">fit3</span> <span class="o">&lt;-</span> <span class="nf">glm</span><span class="p">(</span><span class="n">admit</span><span class="o">~</span><span class="n">.</span><span class="p">,</span> <span class="n">family</span> <span class="o">=</span> <span class="nf">binomial</span><span class="p">(),</span> <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">)</span>
@@ -13782,7 +13912,7 @@ Number of Fisher Scoring iterations: 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">MASS</span><span class="p">)</span>
@@ -13839,7 +13969,7 @@ Number of Fisher Scoring iterations: 3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># The canonical link for poisson regression is log, so can be omitted.</span>
@@ -13904,7 +14034,7 @@ Number of Fisher Scoring iterations: 5
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="nf">exp</span><span class="p">(</span><span class="n">fit.rate</span><span class="o">$</span><span class="n">coefficients</span><span class="p">))</span>
@@ -13935,6 +14065,32 @@ Number of Fisher Scoring iterations: 5
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Why <strong>log</strong> in <code>offset(log(service))</code>
+$$ \log(count) = \beta_0 + \beta_1 * type + \beta_2 * year + \log(service) $$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Move $\log(service)$ to the LHS
+$$ \log(count) - \log(service) = \beta_0 + \beta_1 * type + \beta_2 * year$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>LHS: $ \log(\frac{count}{service})$ --&gt; log rate</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13973,7 +14129,7 @@ Number of Fisher Scoring iterations: 5
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">mean</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span> <span class="n">sd</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
@@ -13996,7 +14152,7 @@ Number of Fisher Scoring iterations: 5
 
 
 <div class="output_html rendered_html output_subarea ">
-4.39635884856708
+4.93314848479989
 </div>
 
 </div>
@@ -14007,7 +14163,7 @@ Number of Fisher Scoring iterations: 5
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">boot.iter</span> <span class="o">&lt;-</span> <span class="m">10000</span>
@@ -14584,13 +14740,13 @@ height=420
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Example-2">Example 2<a class="anchor-link" href="#Example-2">&#182;</a></h3><h5 id="Once-I-came-across-a-paper-that-calculated-the-ratio-of-odds-ratios-(&quot;ROR&quot;)-of-two-variables,-and-claimed-that-the-variable-with-bigger-odds-ratio-(ROR$&gt;1$)-had-a-greater-effect.">Once I came across a paper that calculated the ratio of odds ratios ("ROR") of two variables, and claimed that the variable with bigger odds ratio (ROR$&gt;1$) had a greater effect.<a class="anchor-link" href="#Once-I-came-across-a-paper-that-calculated-the-ratio-of-odds-ratios-(&quot;ROR&quot;)-of-two-variables,-and-claimed-that-the-variable-with-bigger-odds-ratio-(ROR$&gt;1$)-had-a-greater-effect.">&#182;</a></h5>
+<h3 id="Example-2">Example 2<a class="anchor-link" href="#Example-2">&#182;</a></h3><h5 id="Once-I-came-across-a-paper-that-calculated-the-ratio-of-odds-ratios-(&quot;ROR&quot;)-of-two-binary-variables,-and-claimed-that-the-variable-with-bigger-odds-ratio-(ROR$&gt;1$)-had-a-greater-effect.">Once I came across a paper that calculated the ratio of odds ratios ("ROR") of two binary variables, and claimed that the variable with bigger odds ratio (ROR$&gt;1$) had a greater effect.<a class="anchor-link" href="#Once-I-came-across-a-paper-that-calculated-the-ratio-of-odds-ratios-(&quot;ROR&quot;)-of-two-binary-variables,-and-claimed-that-the-variable-with-bigger-odds-ratio-(ROR$&gt;1$)-had-a-greater-effect.">&#182;</a></h5>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Illustration of the idea on a different dataset.</span>
@@ -14639,7 +14795,7 @@ height=420
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">fit</span> <span class="o">&lt;-</span> <span class="nf">glm</span><span class="p">(</span><span class="n">dead</span><span class="o">~</span><span class="n">sex</span><span class="o">+</span><span class="n">diab</span><span class="o">+</span><span class="n">coma</span><span class="o">+</span><span class="n">minf</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">stroke</span><span class="p">,</span> <span class="n">family</span> <span class="o">=</span> <span class="nf">binomial</span><span class="p">())</span>
@@ -14672,7 +14828,7 @@ height=420
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># ROR of myocardial infarction vs. diabetes</span>
@@ -14708,7 +14864,7 @@ height=420
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h5 id="Let's-pretend-that-the-analysis-is-OK.-We-still-need-a-confidence-interval-for-this-&quot;ROR&quot;...">Let's pretend that the analysis is OK. We still need a confidence interval for this "ROR"...<a class="anchor-link" href="#Let's-pretend-that-the-analysis-is-OK.-We-still-need-a-confidence-interval-for-this-&quot;ROR&quot;...">&#182;</a></h5><ul>
-<li><p>Statistically intractable.</p>
+<li><p>Let's pretend that the variance is statistically intractable.</p>
 <ul>
 <li>$\mathrm{Var}(\beta_{minf}/\beta_{diab})$ cannot be calculated analytically.</li>
 </ul>
@@ -14722,7 +14878,7 @@ height=420
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">n</span> <span class="o">&lt;-</span> <span class="nf">nrow</span><span class="p">(</span><span class="n">stroke</span><span class="p">)</span>
@@ -15312,7 +15468,7 @@ height=420
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">boot</span><span class="p">)</span>
@@ -15351,7 +15507,7 @@ ORDINARY NONPARAMETRIC BOOTSTRAP
 
 
 Call:
-boot::boot(data = stroke, statistic = ROR, R = 1000)
+boot(data = stroke, statistic = ROR, R = 1000)
 
 
 Bootstrap Statistics :
@@ -15367,7 +15523,7 @@ t1* 2.078977 0.1560756   0.8775112</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
@@ -16292,7 +16448,7 @@ height=420
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">boot.ci</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
